@@ -1,0 +1,116 @@
+
+* {
+    box-sizing: border-box;
+}
+
+/*html, body, main {
+    height: 100%;
+}*/
+
+body {
+    background-color: hsl(70,60%,60%);
+    margin: 0px;
+}
+
+.topnav {
+    background-color: hsl(50,40%,50%);
+    height: 50px;
+    width: 100%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.left {
+    font-weight: bold;
+    border-right: 1px solid black;
+    overflow: hidden;
+}
+
+
+ul li {
+    position: relative;
+    top: 5px;
+    left: 4px;
+    padding: 5px 0px;
+    font-weight: bold;
+}
+
+.topnav a {
+    font-weight: bold;
+    position: relative;
+    color: black;
+    left: 24px;
+    padding: 0px 20px;
+    text-decoration: none;
+    top:30%;
+}
+#buttons-cell {
+    width: 50%;
+}
+.topnav-right {
+    position: relative;
+    top: 30%;
+    right: 50px;
+    float: right;
+}
+/*
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+*/
+table, tr, td, th {
+    border: 1px solid black;
+}
+
+
+table {
+    position: relative;
+    width: 100%;
+}
+#add-event {
+    border: 3px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    overflow: scroll;
+}
+
+
+.right button {
+    margin: 5px;
+    width: 70px;
+}
+
+
+.header h1{
+    position: relative;
+    bottom: 23px;
+    display: inline;
+    font-family: papyrus;
+}
+
+.header img {
+    position: relative;
+    left: 8px;
+    top: 3px;
+    opacity: 80%;
+    height: 120px;
+    width: 120px;
+}
+

@@ -33,7 +33,7 @@ public class StaffController {
         return "test";
     }
 
-    @GetMapping("/staff-profile-settings")
+    @GetMapping("/profile-settings")
     public String profileSettings() {
         return "staff-profile-settings";
     }

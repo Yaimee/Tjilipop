@@ -1,0 +1,74 @@
+.button-menu {
+    display: inline-block;
+}
+
+.center {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+/*Husk at for at bruge justify content skal du huske at definere display: flex*/
+.master-center {
+    display: flex;
+    justify-content: center;
+}
+
+.b-color-grey {
+    background-color: #e7e9eb;
+    display: inline-block;
+}
+
+.div1 {
+    display: inline-block;
+    height: 10%;
+    width: 50%;
+}
+
+.form-space {
+    margin-bottom: 5%;
+}
+
+.reservation-div {
+    border: 1px solid black;
+    width: fit-content;
+    padding: 10px;
+    margin-left: 40%;
+    margin-top: 10%;
+    text-align: center;
+}
+
+.reservation-employee-div {
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 20px;
+    width: fit-content;
+    padding: 30px;
+}
+
+.small-div {
+    display: inline-block;
+    width: 30%;
+}
+
+.picture {
+    display: inline-block;
+    width: 500px;
+    height: 300px;
+}
+
+#edit-picture {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+}
+
+#add-picture {
+    padding-bottom: 10%;
+}
+
+.small-picture {
+    display: inline-block;
+    width: 45%;
+    height: 45%;
+}
+

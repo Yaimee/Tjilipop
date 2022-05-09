@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="Stylesheet.css">
+    <meta charset="UTF-8">
+    <title>Test site</title>
+</head>
+<body>
+<div>
+    <div class="reservation-div">
+
+        <h1>This is your reservation</h1>
+        <!-- "th" står for "thymeleaf" derefter har vi typen text
+         Derefter skriver vi den mærkat vi skrev i controlleren
+         Når vi skulle bruge fx. "model.addAttribute("mærkat", reservation.getFullname());"-->
+        <label>Dit Navn:</label>
+        <p th:text="${testName}" ></p>
+        <label>Dit Telefonnummer:</label>
+        <p th:text="${testTelephone}" ></p>
+        <label>Din Email:</label>
+        <p th:text="${TestEmail}" ></p>
+        <label>Dit antal af besøgende:</label>
+        <p th:text="${NumOfPeople}" ></p>
+        <label>Din besked:</label>
+        <p th:text="${Testmessage}" ></p>
+    </div>
+</div>
+</body>
+</html>

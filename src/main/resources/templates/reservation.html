@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="Stylesheet.css">
+    <link type="text/css" rel="stylesheet" href="/staff-frontpage-stylesheet.css"/>
+    <meta charset="UTF-8">
+    <title>reservation</title>
+</head>
+<body>
+<header class="header">
+    <img alt="Tjilipop logo" src="https://i.imgur.com/q9EgVdo.png">
+    <h1>Tjilipop</h1>
+</header>
+<div class="topnav">
+    <a href="/menu">Menu</a>
+    <a href="/events">Events</a>
+    <a href="/reservation">Reservation</a>
+    <a href="/contact">Contact</a>
+    <div class="topnav-right">
+        <a href="/">About us</a>
+        <a href="/staff">Staff</a>
+    </div>
+</div>
+<div>
+<div class="reservation-div">
+
+        <h1>Reservation of table 1</h1>
+    <!-- "action" angiver hvor vi skal sende vores form data hen
+    og "method" angiver hvilken metode man bruge fx. get eller post
+     Derefter laver vi en model klasse (se. model klasse Reservation)-->
+        <form action="/test" method="POST">
+            <label> Full Name:</label><br>
+            <input type="text" id="first-name" name="fullname"><br>
+            <label> Telephone:</label><br>
+            <input type="number" id="telephone" name="telephone"><br>
+            <label> Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <label> Number of people (Max 6):</label><br>
+            <input type="number" id="num-of-people" name="num_of_people"><br>
+            <textarea name="message" style="width:200px; height:100px;"></textarea><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

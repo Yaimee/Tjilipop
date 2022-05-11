@@ -11,14 +11,14 @@ import java.util.List;
 public class MenuItemRepository implements CRUDInterface<MenuItem> {
     @Override
     public boolean insert(MenuItem MenuItem) {
-        /*try {
+        try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("INSERT INTO  VALUES (" + MenuItem.getId() + ",'" + event.getName() + "','" + event.getDate() + "'," + event.getTime() + ",'" + event.getInfo() + "')");
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO menu_items  VALUES (" + MenuItem.getName() + ",'" + MenuItem.getPrice() + "'," + MenuItem.getProcent() + ",'" + MenuItem.getOrigin() + "','" + MenuItem.getDescription() + "')");
             stmt.execute();
         } catch(SQLException e) {
             e.printStackTrace();
             System.out.println("Something wrong inserting event into database");
-        }*/
+        }
         return true;
     }
 

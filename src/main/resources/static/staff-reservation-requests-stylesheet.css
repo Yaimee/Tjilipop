@@ -3,9 +3,13 @@
     box-sizing: border-box;
 }
 */
-/*html, body, main {
+html, body {
     height: 100%;
-}*/
+}
+
+.container {
+
+}
 
 .topnav {
     background-color: hsl(50,40%,50%);
@@ -17,7 +21,6 @@
     display: grid;
     grid-template-columns: 20% 80%;
 }
-
 
 
 .left  {

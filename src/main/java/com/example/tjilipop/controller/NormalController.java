@@ -1,6 +1,6 @@
 package com.example.tjilipop.controller;
 
-import com.example.tjilipop.Model.Reservation;
+import com.example.tjilipop.model.Reservation;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,7 +52,7 @@ public class NormalController {
         model.addAttribute("testName", reservation.getFullname());
         model.addAttribute("testTelephone", reservation.getTelephone());
         model.addAttribute("TestEmail", reservation.getEmail());
-        model.addAttribute("NumOfPeople", reservation.getNum_of_people());
+        model.addAttribute("NumOfPeople", reservation.getNumberOfGuests());
         model.addAttribute("Testmessage", reservation.getMessage() );
         return "Test-site";}
 }

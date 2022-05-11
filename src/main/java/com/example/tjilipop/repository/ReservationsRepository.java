@@ -1,9 +1,11 @@
 package com.example.tjilipop.repository;
+import com.example.tjilipop.model.Event;
 import com.example.tjilipop.model.Reservation;
 import com.example.tjilipop.utility.Database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -24,7 +26,20 @@ public class ReservationsRepository implements CRUDInterface<Reservation> {
 
     @Override
     public Reservation getSingleEntity(int id) {
-        return null;
+        Reservation reservation = null;
+
+        try {
+            Connection con = Database.getConnection();
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM reservations WHERE id = "+ id);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            reservation = new Reservation(rs);
+        } catch(SQLException e) {
+            e.printStackTrace();
+            System.out.println("Something went wrong in fetching an event from database");
+        }
+
+        return event;
     }
 
     @Override

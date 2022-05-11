@@ -66,14 +66,13 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
 
     @Override
     public boolean update(MenuItem menuItem) {
-
         try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("UPDATE menu_items SET name = '" + menuItem.getName() + "', date = '" + menuItem.getDate() + "', time = '" + menuItem.getTime() + "', info = '" + event.getInfo() + "' WHERE id = "+ event.getId());
+            PreparedStatement stmt = con.prepareStatement("UPDATE menu_items SET name = '" + menuItem.getName() + "', price = '" + menuItem.getPrice() + "', procent = '" + menuItem.getProcent() + "', origin = '" + menuItem.getOrigin() + "', description = '" + menuItem.getDescription() + "' WHERE id = " + menuItem.getId());
             stmt.executeQuery();
         } catch(SQLException e) {
             e.printStackTrace();
-            System.out.println("Something went wrong in fetching an event from database");
+            System.out.println("Something went wrong, updating item in database");
         }
 
         return true;
@@ -81,6 +80,15 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
 
     @Override
     public boolean delete(int id) {
-        return false;
+        try {
+            Connection con = Database.getConnection();
+            PreparedStatement stmt = con.prepareStatement("DELETE FROM menu_item WHERE id = " + id);
+            stmt.executeQuery();
+        } catch(SQLException e) {
+            e.printStackTrace();
+            System.out.println("Something went wrong, deleting an item from database");
+        }
+
+        return true;
     }
 }

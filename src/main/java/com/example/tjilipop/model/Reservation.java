@@ -13,6 +13,8 @@ public class Reservation {
     private int numberOfGuests;
     private String message;
 
+
+
     public int getId() {
         return id;
     }

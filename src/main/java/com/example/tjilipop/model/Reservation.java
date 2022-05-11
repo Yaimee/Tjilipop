@@ -1,7 +1,8 @@
 package com.example.tjilipop.model;
 
-public class Reservation {
+import java.sql.ResultSet;
 
+public class Reservation {
 
     /* Her skal alle navnene på String variablerne være
         PRÆCIS det samme som "name" attribut fra vores HTML dokument (reservation)
@@ -10,8 +11,35 @@ public class Reservation {
     private String fullname;
     private long telephone;
     private String email;
-    private int numberOfGuests;
+    private int num_of_people;
     private String message;
+
+    /*Det er vigtigt at når man bruger @ModelAttribute at man har en tom constructor,
+    så @ModelAttribute kan bruge den eller noget lign.*/
+    Reservation() {
+
+    }
+
+    Reservation(String fullname, int telephone, String email, int numberOfGuests, String message) {
+        this.fullname = fullname;
+        this.telephone = telephone;
+        this.email = email;
+        this.num_of_people = numberOfGuests;
+        this.message = message;
+    }
+
+    public Reservation(ResultSet rs) {
+        try {
+            this.id = rs.getInt(1);
+            this.fullname = rs.getString(2);
+            this.telephone = rs.getInt(3);
+            this.email = rs.getString(4);
+            this.num_of_people = rs.getInt(5);
+            this.message = rs.getString(6);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public int getId() {
         return id;
@@ -45,12 +73,12 @@ public class Reservation {
         this.email = email;
     }
 
-    public int getNumberOfGuests() {
-        return numberOfGuests;
+    public int getNum_of_people() {
+        return num_of_people;
     }
 
-    public void setNumberOfGuests(int numberOfGuests) {
-        this.numberOfGuests = numberOfGuests;
+    public void setNum_of_people(int num_of_people) {
+        this.num_of_people = num_of_people;
     }
 
     public String getMessage() {

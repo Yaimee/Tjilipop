@@ -2,6 +2,7 @@ package com.example.tjilipop.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -28,7 +29,7 @@ public class StaffController {
         return "edit-events";
     }
 
-    @GetMapping("/test")
+    @GetMapping("/test1")
     public String test() {
         return "test";
     }
@@ -36,5 +37,10 @@ public class StaffController {
     @GetMapping("/profile-settings")
     public String profileSettings() {
         return "staff-profile-settings";
+    }
+
+    @GetMapping("/menu")
+    public String menu() {
+        return "menu";
     }
 }

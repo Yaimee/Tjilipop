@@ -1,9 +1,11 @@
 package com.example.tjilipop.repository;
+import com.example.tjilipop.model.Event;
 import com.example.tjilipop.model.Reservation;
 import com.example.tjilipop.utility.Database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -13,7 +15,8 @@ public class ReservationsRepository implements CRUDInterface<Reservation> {
     public boolean insert(Reservation reservation) {
         try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("INSERT INTO reservations VALUES ('" + reservation.getFullname() + "','" + reservation.getTelephone() + "'," + reservation.getEmail() + ",'" + reservation.getNumberOfGuests() + "',)");
+            /*Husk at du skal først sige hvilke columns du gerne vil indsætte i og derefter de værdier du gerne vil indsætte*/
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO reservation_test.new_table (full_name, telephone, email, numberOfGuests, message) VALUES ('" + reservation.getFullname() + "','" + reservation.getTelephone() + "','" + reservation.getEmail() + "','" + reservation.getNum_of_people() + "','" + reservation.getMessage() + "')");
             stmt.execute();
         } catch(SQLException e) {
             e.printStackTrace();
@@ -23,9 +26,7 @@ public class ReservationsRepository implements CRUDInterface<Reservation> {
     }
 
     @Override
-    public Reservation getSingleEntity(int id) {
-        return null;
-    }
+    public Reservation getSingleEntity(int id) {return null;}
 
     @Override
     public List<Reservation> getList() {

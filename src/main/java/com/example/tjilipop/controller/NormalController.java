@@ -1,6 +1,8 @@
 package com.example.tjilipop.controller;
 
 import com.example.tjilipop.model.Reservation;
+import com.example.tjilipop.repository.CRUDInterface;
+import com.example.tjilipop.repository.ReservationsRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class NormalController {
+    private CRUDInterface<Reservation> reservationsRepository = new ReservationsRepository();
     /*Tobias kode ---------------------------------------------------------------------->*/
 
     /*Her skal man bruge getMapping hvis,
@@ -52,7 +55,10 @@ public class NormalController {
         model.addAttribute("testName", reservation.getFullname());
         model.addAttribute("testTelephone", reservation.getTelephone());
         model.addAttribute("TestEmail", reservation.getEmail());
-        model.addAttribute("NumOfPeople", reservation.getNumberOfGuests());
+        model.addAttribute("NumOfPeople", reservation.getNum_of_people());
         model.addAttribute("Testmessage", reservation.getMessage() );
+
+        reservationsRepository.insert(reservation);
+
         return "Test-site";}
 }

@@ -49,8 +49,8 @@ public class NormalController {
     @PostMapping("/test")
     public String test(@ModelAttribute Reservation reservation, Model model)
     {
-        model.addAttribute("testName", reservation.getFullname());
-        model.addAttribute("testTelephone", reservation.getTelephone());
+        model.addAttribute("testName", reservation.getFullName());
+        model.addAttribute("testTelephone", reservation.getPhone());
         model.addAttribute("TestEmail", reservation.getEmail());
         model.addAttribute("NumOfPeople", reservation.getNumberOfGuests());
         model.addAttribute("Testmessage", reservation.getMessage() );

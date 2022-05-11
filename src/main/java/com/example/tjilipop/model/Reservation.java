@@ -1,20 +1,18 @@
 package com.example.tjilipop.model;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Time;
+import java.util.Date;
 
 public class Reservation {
-
-
     /* Her skal alle navnene på String variablerne være
-        PRÆCIS det samme som "name" attribut fra vores HTML dokument (reservation)
-        HUSK også at lave gettere og settere (ved at højre klikke og trykke på generate)*/
+    PRÆCIS det samme som "name" attribut fra vores HTML dokument (reservation)
+    HUSK også at lave gettere og settere (ved at højre klikke og trykke på generate)*/
     private int id;
     private String fullName;
     private Date date;
     private Time time;
-    private long phone;
+    private String phone;
     private String email;
     private int numberOfGuests;
     private String message;
@@ -25,13 +23,13 @@ public class Reservation {
             this.fullName = rs.getString(2);
             this.date = rs.getDate(3);
             this.time = rs.getTime(4);
-            this.phone = rs.getLong(5);
+            this.phone = rs.getString(5);
             this.email = rs.getString(6);
             this.numberOfGuests = rs.getInt(7);
             this.message = rs.getString(8);
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Something went wrong and the event was not created");
+            System.out.println("Something went wrong, instantiating a reservation object");
         }
     }
 
@@ -47,8 +45,8 @@ public class Reservation {
         return fullName;
     }
 
-    public void setFullName(String fullname) {
-        this.fullName = fullname;
+    public void setFullName(String fullMame) {
+        this.fullName = fullName;
     }
 
     public Date getDate() {
@@ -67,11 +65,11 @@ public class Reservation {
         this.time = time;
     }
 
-    public long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

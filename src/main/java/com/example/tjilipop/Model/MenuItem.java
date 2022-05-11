@@ -13,7 +13,7 @@ public class MenuItem {
     private String origin;
     private String description;
 
-    MenuItem(ResultSet rs) {
+    public MenuItem(ResultSet rs) {
         try {
             this.id = rs.getInt(1);
             this.name = rs.getString(2);

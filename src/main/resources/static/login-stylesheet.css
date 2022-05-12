@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: hsl(70,60%,60%);
+    margin: 0px;
+}
+
+.header img {
+    position: relative;
+    left: 8px;
+    top: 3px;
+    opacity: 80%;
+    height: 120px;
+    width: 120px;
+}
+
+.header h1{
+    position: relative;
+    bottom: 23px;
+    display: inline;
+    font-family: papyrus;
+}
+
+.topnav {
+    background-color: hsl(50,40%,50%);
+    height: 50px;
+    width: 100%
+}
+
+.topnav a {
+    font-weight: bold;
+    position: relative;
+    color: black;
+    left: 24px;
+    padding: 0px 20px;
+    text-decoration: none;
+    top:30%;
+}
+
+.topnav-right {
+    position: relative;
+    top: 30%;
+    right: 50px;
+    float: right;
+}
+
+.login-window {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+form {
+    padding: 20px;
+    border: 3px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+input, label {
+    margin: 5px 0px;
+}
+
+
+
+
+

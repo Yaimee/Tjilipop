@@ -1,7 +1,10 @@
 package com.example.tjilipop.controller;
 
+import com.example.tjilipop.model.Login;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -9,6 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class StaffController {
 
     @GetMapping()
+    public String loginPage() {
+        return "staff-login";
+    }
+
+    @PostMapping()
+    public String login(@ModelAttribute Login loginData) {
+        return "hej";
+    }
+
+    @GetMapping("/staff-frontpage")
     public String frontPage() {
         return "staff-frontpage";
     }

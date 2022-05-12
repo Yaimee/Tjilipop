@@ -42,6 +42,21 @@ public class NormalController {
         return "contact";
     }
 
+    @GetMapping("/menu")
+    public String menu() {return "menu-øl";}
+
+    @GetMapping("/menu-vin")
+    public String menu_Vin() {return "menu-vin";}
+
+    @GetMapping("/menu-spiritus")
+    public String menu_spiritus() {return "menu-spiritus";}
+
+    @GetMapping("/menu-uden-alc")
+    public String menu_uden_procent() {return "menu-uden-alc";}
+
+    @GetMapping("/menu-mad")
+    public String menu_mad() {return "menu-mad";}
+
     /*Her skal vi både bruge en GetMapping og en PostMapping*/
     @GetMapping("/test")
     public String test1() {return "Test-site";}

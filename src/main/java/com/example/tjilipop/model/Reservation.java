@@ -9,26 +9,34 @@ public class Reservation {
     PRÆCIS det samme som "name" attribut fra vores HTML dokument (reservation)
     HUSK også at lave gettere og settere (ved at højre klikke og trykke på generate)*/
     private int id;
-    private String fullName;
+    private String fullname;
     private Date date;
     private Time time;
-    private String phone;
+    private String telephone;
     private String email;
-    private int numberOfGuests;
+    private int num_of_people;
     private String message;
 
     public Reservation() {
 
     }
 
+    public Reservation(String fullname, String telephone, String email, int numberOfGuests, String message) {
+        this.fullname = fullname;
+        this.telephone = telephone;
+        this.email = email;
+        this.num_of_people = numberOfGuests;
+        this.message = message;
+    }
+
     public Reservation(ResultSet rs) {
         try {
-            this.fullName = rs.getString(1);
+            this.fullname = rs.getString(1);
             this.date = rs.getDate(2);
             this.time = rs.getTime(3);
-            this.phone = rs.getString(4);
+            this.telephone = rs.getString(4);
             this.email = rs.getString(5);
-            this.numberOfGuests = rs.getInt(6);
+            this.num_of_people = rs.getInt(6);
             this.message = rs.getString(7);
         } catch (Exception e) {
             e.printStackTrace();
@@ -44,12 +52,12 @@ public class Reservation {
         this.id = id;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setFullName(String fullMame) {
-        this.fullName = fullName;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public Date getDate() {
@@ -68,12 +76,12 @@ public class Reservation {
         this.time = time;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getTelephone() {
+        return telephone;
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
+        this.telephone = phone;
     }
 
     public String getEmail() {
@@ -84,12 +92,12 @@ public class Reservation {
         this.email = email;
     }
 
-    public int getNumberOfGuests() {
-        return numberOfGuests;
+    public int getNum_of_people() {
+        return num_of_people;
     }
 
-    public void setNumberOfGuests(int numberOfGuests) {
-        this.numberOfGuests = numberOfGuests;
+    public void setNum_of_people(int num_of_people) {
+        this.num_of_people = num_of_people;
     }
 
     public String getMessage() {

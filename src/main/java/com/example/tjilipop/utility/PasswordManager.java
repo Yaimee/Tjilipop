@@ -27,6 +27,6 @@ public class PasswordManager {
             System.out.println("Something went wrong in fetching an event from database");
         }
 
-        return event;
+        return login;
     }
 }

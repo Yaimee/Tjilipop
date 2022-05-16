@@ -67,11 +67,11 @@ public class NormalController {
     @PostMapping("/test")
     public String test(@ModelAttribute Reservation reservation, Model model)
     {
-        model.addAttribute("testName", reservation.getFullName());
-        model.addAttribute("testTelephone", reservation.getPhone());
+        model.addAttribute("testName", reservation.getFullname());
+        model.addAttribute("testTelephone", reservation.getTelephone());
         model.addAttribute("TestEmail", reservation.getEmail());
-        model.addAttribute("NumOfPeople", reservation.getNumberOfGuests());
-        model.addAttribute("Testmessage", reservation.getMessage() );
+        model.addAttribute("NumOfPeople", reservation.getNum_of_people());
+        model.addAttribute("Testmessage", reservation.getMessage());
 
         reservationsRepository.insert(reservation);
 

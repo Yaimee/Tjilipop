@@ -31,7 +31,58 @@
             </ul>
         </div>
         <div class="right">
-            <div class="request">
+            <div class="reservation" th:each="reservation : ${reservations}">
+                <table>
+                    <tr>
+                        <th scope="row">Name: </th>
+                        <td th:text="${reservation.getFullname()}"></td>
+                        <!--<td rowspan="7" id="buttons-cell">
+                            <button>Accept</button>
+                            <button>Reject</button>
+                            <button>Edit</button>
+                        </td>-->
+                    </tr>
+                    <tr>
+                        <th scope="row">Date: </th>
+                        <td th:text="${reservation.getDate()}"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Time: </th>
+                        <td th:text="${reservation.getTime()}"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Phone: </th>
+                        <td th:text="${reservation.getTelephone()}"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Email: </th>
+                        <td th:text="${reservation.getEmail()}"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Number of guests: </th>
+                        <td th:text="${reservation.getNum_of_people()}"></td>
+                    </tr>
+                    <tr>
+                        <th >Additional information:</th>
+                        <td th:text="${reservation.getMessage()}"></td>
+                    </tr>
+                </table>
+                <div class="buttons">
+                    <button>Accept</button>
+                    <button>Reject</button>
+                    <button>Edit</button>
+                </div>
+                </div>
+                <!--<div class="left-column">
+                    <div>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="right-column"></div>-->
+            </div>
+        </div>
+            <!--<div class="request">
                 <table>
                     <tr>
                         <th scope="row">Name: </th>
@@ -64,7 +115,7 @@
             </div>
         </div>
     </div>
-<!--</main>-->
+</main>-->
 <footer>
 </footer>
 </body>

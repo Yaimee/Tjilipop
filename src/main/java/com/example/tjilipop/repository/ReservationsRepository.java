@@ -17,7 +17,7 @@ public class ReservationsRepository implements CRUDInterface<Reservation> {
     public boolean insert(Reservation reservation) {
         try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("INSERT INTO reservations VALUES ('" + reservation.getFullName() + "','" + reservation.getPhone() + "'," + reservation.getEmail() + ",'" + reservation.getNumberOfGuests() + "',)");
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO reservations VALUES ('" + reservation.getFullname() + "','" + reservation.getTelephone() + "'," + reservation.getEmail() + ",'" + reservation.getNum_of_people() + "',)");
             stmt.execute();
         } catch(SQLException e) {
             e.printStackTrace();
@@ -68,7 +68,7 @@ public class ReservationsRepository implements CRUDInterface<Reservation> {
     public boolean update(Reservation reservation) {
         try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("UPDATE reservations SET full_name = '" + reservation.getFullName() + "', date = '" + reservation.getDate() + "', time = '" + reservation.getTime() + "', email = '" + reservation.getEmail() + "', phone = " + reservation.getPhone() + ", number_of_guests = " + reservation.getNumberOfGuests() + ", info = '" + reservation.getMessage() + "' WHERE id = "+ reservation.getId());
+            PreparedStatement stmt = con.prepareStatement("UPDATE reservations SET full_name = '" + reservation.getFullname() + "', date = '" + reservation.getDate() + "', time = '" + reservation.getTime() + "', email = '" + reservation.getEmail() + "', phone = " + reservation.getTelephone() + ", number_of_guests = " + reservation.getNum_of_people() + ", info = '" + reservation.getMessage() + "' WHERE id = "+ reservation.getId());
             stmt.executeQuery();
         } catch(SQLException e) {
             e.printStackTrace();

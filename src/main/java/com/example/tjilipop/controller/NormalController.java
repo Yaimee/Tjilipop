@@ -70,7 +70,7 @@ public class NormalController {
         model.addAttribute("testName", reservation.getFullName());
         model.addAttribute("testTelephone", reservation.getPhone());
         model.addAttribute("TestEmail", reservation.getEmail());
-        model.addAttribute("NumOfPeople", reservation.getNum_of_people());
+        model.addAttribute("NumOfPeople", reservation.getNumberOfGuests());
         model.addAttribute("Testmessage", reservation.getMessage() );
 
         reservationsRepository.insert(reservation);

@@ -1,79 +1,29 @@
-package com.example.tjilipop.model;
-
-import java.sql.ResultSet;
-import java.sql.Time;
-import java.util.Date;
+package com.example.tjilipop.Model;
 
 public class Reservation {
     /* Her skal alle navnene på String variablerne være
     PRÆCIS det samme som "name" attribut fra vores HTML dokument (reservation)
     HUSK også at lave gettere og settere (ved at højre klikke og trykke på generate)*/
-    private int id;
-    private String fullName;
-    private Date date;
-    private Time time;
-    private String phone;
+    private String fullname;
+    private String telephone;
     private String email;
-    private int numberOfGuests;
+    private String num_of_people;
     private String message;
 
-    public Reservation() {
-
+    public String getFullname() {
+        return fullname;
     }
 
-    public Reservation(ResultSet rs) {
-        try {
-            this.fullName = rs.getString(1);
-            this.date = rs.getDate(2);
-            this.time = rs.getTime(3);
-            this.phone = rs.getString(4);
-            this.email = rs.getString(5);
-            this.numberOfGuests = rs.getInt(6);
-            this.message = rs.getString(7);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Something went wrong, instantiating a reservation object");
-        }
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
-    public int getId() {
-        return id;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullMame) {
-        this.fullName = fullName;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Time getTime() {
-        return time;
-    }
-
-    public void setTime(Time time) {
-        this.time = time;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public String getEmail() {
@@ -84,12 +34,12 @@ public class Reservation {
         this.email = email;
     }
 
-    public int getNumberOfGuests() {
-        return numberOfGuests;
+    public String getNum_of_people() {
+        return num_of_people;
     }
 
-    public void setNumberOfGuests(int numberOfGuests) {
-        this.numberOfGuests = numberOfGuests;
+    public void setNum_of_people(String num_of_people) {
+        this.num_of_people = num_of_people;
     }
 
     public String getMessage() {

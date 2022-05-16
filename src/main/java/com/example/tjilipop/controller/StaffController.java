@@ -42,7 +42,7 @@ public class StaffController {
         return "edit-events";
     }
 
-    @GetMapping("/test")
+    @GetMapping("/test1")
     public String test() {
         return "test";
     }
@@ -50,5 +50,10 @@ public class StaffController {
     @GetMapping("/profile-settings")
     public String profileSettings() {
         return "staff-profile-settings";
+    }
+
+    @GetMapping("/menu")
+    public String menu() {
+        return "menu-øl";
     }
 }

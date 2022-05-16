@@ -8,5 +8,5 @@ public class TjilipopApplication {
     public static void main(String[] args) {
         SpringApplication.run(TjilipopApplication.class, args);
     }
-
+/*dette er test for at se om commit og push virker*/
 }

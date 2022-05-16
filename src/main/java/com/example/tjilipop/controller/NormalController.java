@@ -1,6 +1,8 @@
 package com.example.tjilipop.controller;
 
 import com.example.tjilipop.model.Reservation;
+import com.example.tjilipop.repository.CRUDInterface;
+import com.example.tjilipop.repository.ReservationsRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class NormalController {
+    private CRUDInterface<Reservation> reservationsRepository = new ReservationsRepository();
     /*Tobias kode ---------------------------------------------------------------------->*/
 
     /*Her skal man bruge getMapping hvis,
@@ -39,6 +42,21 @@ public class NormalController {
         return "contact";
     }
 
+    @GetMapping("/menu")
+    public String menu() {return "menu-øl";}
+
+    @GetMapping("/menu-vin")
+    public String menu_Vin() {return "menu-vin";}
+
+    @GetMapping("/menu-spiritus")
+    public String menu_spiritus() {return "menu-spiritus";}
+
+    @GetMapping("/menu-uden-alc")
+    public String menu_uden_procent() {return "menu-uden-alc";}
+
+    @GetMapping("/menu-mad")
+    public String menu_mad() {return "menu-mad";}
+
     /*Her skal vi både bruge en GetMapping og en PostMapping*/
     @GetMapping("/test")
     public String test1() {return "Test-site";}
@@ -52,7 +70,10 @@ public class NormalController {
         model.addAttribute("testName", reservation.getFullName());
         model.addAttribute("testTelephone", reservation.getPhone());
         model.addAttribute("TestEmail", reservation.getEmail());
-        model.addAttribute("NumOfPeople", reservation.getNumberOfGuests());
+        model.addAttribute("NumOfPeople", reservation.getNum_of_people());
         model.addAttribute("Testmessage", reservation.getMessage() );
+
+        reservationsRepository.insert(reservation);
+
         return "Test-site";}
 }

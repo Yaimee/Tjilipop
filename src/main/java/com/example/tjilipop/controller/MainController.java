@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class NormalController {
+public class MainController {
     private CRUDInterface<Reservation> reservationsRepository = new ReservationsRepository();
     /*Tobias kode ---------------------------------------------------------------------->*/
 

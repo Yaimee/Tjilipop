@@ -31,13 +31,13 @@ public class Reservation {
 
     public Reservation(ResultSet rs) {
         try {
-            this.fullname = rs.getString(1);
-            this.date = rs.getDate(2);
-            this.time = rs.getTime(3);
-            this.telephone = rs.getString(4);
-            this.email = rs.getString(5);
-            this.num_of_people = rs.getInt(6);
-            this.message = rs.getString(7);
+            this.fullname = rs.getString(2);
+            this.date = rs.getDate(3);
+            this.time = rs.getTime(4);
+            this.telephone = rs.getString(5);
+            this.email = rs.getString(6);
+            this.num_of_people = rs.getInt(7);
+            this.message = rs.getString(8);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Something went wrong, instantiating a reservation object");

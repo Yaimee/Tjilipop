@@ -8,7 +8,7 @@ import com.example.tjilipop.repository.CRUDInterface;
 import com.example.tjilipop.repository.EventsRepository;
 import com.example.tjilipop.repository.MenuItemRepository;
 import com.example.tjilipop.repository.ReservationsRepository;
-import com.example.tjilipop.utility.PasswordManager;
+import com.example.tjilipop.utility.LoginManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +23,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/staff")
 public class StaffController {
-    private PasswordManager passwordManager = new PasswordManager();
+    private LoginManager loginManager = new LoginManager();
     private CRUDInterface<Reservation> reservationsRepository = new ReservationsRepository();
     private CRUDInterface<Event> eventsRepository = new EventsRepository();
     private CRUDInterface<MenuItem> menuItemRespository = new MenuItemRepository();

@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PasswordManager {
+public class LoginManager {
     public void updateLogin(Login login) {
 
     }
@@ -18,7 +18,7 @@ public class PasswordManager {
 
         try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM login");
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM `tjili-pop`.login");
             ResultSet rs = stmt.executeQuery();
             rs.next();
             login = new Login(rs);
@@ -26,7 +26,7 @@ public class PasswordManager {
             e.printStackTrace();
             System.out.println("Something went wrong in fetching an event from database");
         }
-
+        System.out.println(login.toString());
         return login;
     }
 }

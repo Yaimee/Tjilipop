@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EventsRepository implements CRUDInterface<Event> {
-    private CRUDInterface<Event> eventsRepository = new EventsRepository();
 
     @Override
     public boolean insert(Event event) {

@@ -23,12 +23,14 @@
       </div>
     </div>
     <div class="login-window">
-      <form class="form-container">
+      <form action="/staff" method="POST" class="form-container">
         <label for="username">Username: </label>
         <input id="username" name="username" type="text" required>
         <label for="password">Password: </label>
         <input id="password" name="password" type="password" required>
+        <button type="submit">Log in</button>
       </form>
+      <div><span th:text="${status}"></span></div>
     </div>
   </div>
 </main>

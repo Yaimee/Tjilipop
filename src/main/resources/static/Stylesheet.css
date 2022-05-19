@@ -65,7 +65,8 @@
 
 .small-div {
     display: inline-block;
-    width: 30%;
+    width: 27%;
+    margin: 1%;
 }
 
 .right {
@@ -90,7 +91,7 @@
 
 .small-picture {
     display: inline-block;
-    width: 45%;
-    height: 45%;
+    width: 50%;
+    height: 50%;
 }
 

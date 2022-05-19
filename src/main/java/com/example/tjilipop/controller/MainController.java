@@ -1,5 +1,6 @@
 package com.example.tjilipop.controller;
 
+import com.example.tjilipop.model.MenuItem;
 import com.example.tjilipop.model.Reservation;
 import com.example.tjilipop.repository.CRUDInterface;
 import com.example.tjilipop.repository.ReservationsRepository;
@@ -43,7 +44,13 @@ public class MainController {
     }
 
     @GetMapping("/menu")
-    public String menu() {return "menu-øl";}
+    public String menu(@ModelAttribute MenuItem menuItem, Model model) {
+        model.addAttribute("nameTest", menuItem.getName());
+        model.addAttribute("priceTest", menuItem.getPrice());
+        model.addAttribute("procentTest", menuItem.getProcent());
+        model.addAttribute("originTest", menuItem.getOrigin());
+        model.addAttribute("descriptionTest", menuItem.getDescription());
+        return "menu-øl";}
 
     @GetMapping("/menu-vin")
     public String menu_Vin() {return "menu-vin";}

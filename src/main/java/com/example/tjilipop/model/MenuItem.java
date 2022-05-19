@@ -7,21 +7,22 @@ public class MenuItem {
     private int id;
     private String name;
     private int price;
-    private double procent;
-    private Date date;
-    private Time time;
+    private int procent;
     private String origin;
     private String description;
+
+    MenuItem() {
+
+    }
 
     public MenuItem(ResultSet rs) {
         try {
             this.id = rs.getInt(1);
             this.name = rs.getString(2);
             this.price = rs.getInt(3);
-            this.date = rs.getDate(4);
-            this.time = rs.getTime(5);
-            this.origin = rs.getString(6);
-            this.description = rs.getString(7);
+            this.procent = rs.getInt(4);
+            this.origin = rs.getString(5);
+            this.description = rs.getString(6);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Something went wrong and the MenuItem was not created.");
@@ -52,28 +53,12 @@ public class MenuItem {
         return procent;
     }
 
-    public void setProcent(double procent) {
+    public void setProcent(int procent) {
         this.procent = procent;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Time getTime() {
-        return time;
-    }
-
-    public void setTime(Time time) {
-        this.time = time;
     }
 
     public String getOrigin() {
@@ -96,8 +81,8 @@ public class MenuItem {
     public String toString() {
         return "MenuItem{" +
                 "name='" + name + '\'' +
-                ", date=" + date +
-                ", time=" + time +
+                ", date=" +
+                ", time=" +
                 ", info='" + description + '\'' +
                 '}';
     }

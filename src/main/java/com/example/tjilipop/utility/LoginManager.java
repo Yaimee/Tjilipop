@@ -1,8 +1,6 @@
 package com.example.tjilipop.utility;
 
-import com.example.tjilipop.model.Event;
 import com.example.tjilipop.model.Login;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +8,14 @@ import java.sql.SQLException;
 
 public class LoginManager {
     public void updateLogin(Login login) {
-
+        try {
+            Connection con = Database.getConnection();
+            PreparedStatement stmt = con.prepareStatement("UPDATE login SET username = '" + login.getUsername() + "', password = '" + login.getPassword() + "'");
+            stmt.executeQuery();
+        } catch(SQLException e) {
+            e.printStackTrace();
+            System.out.println("Something went wrong, updating password in database");
+        }
     }
 
     public Login getLogin() {

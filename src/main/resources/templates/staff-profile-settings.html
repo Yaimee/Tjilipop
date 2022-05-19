@@ -32,7 +32,7 @@
     </div>
     <div class="right">
         <div class="form-container">
-            <form action="/" class="settings">
+            <form action="/profile-settings" method="POST" class="settings">
                     <label for="username">Username: </label>
                     <input type="text" name="username" id="username">
                     <label for="password">Old password: </label>
@@ -44,6 +44,7 @@
                     <button type="submit">Confirm</button>
             </form>
         </div>
+        <span th:text="${status}"></span>
     </div>
 </div>
 <footer>

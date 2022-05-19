@@ -1,9 +1,6 @@
 package com.example.tjilipop.controller;
 
-import com.example.tjilipop.model.Event;
-import com.example.tjilipop.model.Login;
-import com.example.tjilipop.model.MenuItem;
-import com.example.tjilipop.model.Reservation;
+import com.example.tjilipop.model.*;
 import com.example.tjilipop.repository.CRUDInterface;
 import com.example.tjilipop.repository.EventsRepository;
 import com.example.tjilipop.repository.MenuItemRepository;
@@ -12,10 +9,7 @@ import com.example.tjilipop.service.LoginService;
 import com.example.tjilipop.utility.LoginManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -83,6 +77,22 @@ public class StaffController {
         }
     }
 
+    @GetMapping("/edit-events/event-settings")
+    public String eventSettings(HttpSession session, Model model) {
+        if(session.getAttribute("login") != null) {
+            return "staff-event-settings";
+        } else {
+            model.addAttribute("status","You have to be logged in before entering staff page");
+            return "staff-login";
+        }
+    }
+
+    @PostMapping("/edit-events/event-settings")
+    public String eventSettingsData(@ModelAttribute Event eventData) {
+        eventsRepository.insert(eventData);
+        return "/edit-events/event-settings";
+    }
+
     @GetMapping("/edit-menu")
     public String editMenu(HttpSession session, Model model) {
         if(session.getAttribute("login") != null) {
@@ -109,15 +119,27 @@ public class StaffController {
     }
 
     @PostMapping("/profile-settings")
-    public String updateProfile(@ModelAttribute Login login, Model model, HttpSession session) {
-        /*if (loginService.doPasswordAndUsernameMatch(login.getUsername(),login.getPassword())) {
-            if(loginService.isPasswordAndUsernameValid(login.getUsername(),login.getPassword())) {
-                loginManager.updateLogin(login);
-                model.addAttribute("status", "Login was successfully updated")
-                return "redirect:/profile-settings";
+    public String updateProfile(@ModelAttribute ProfileSetting profileSetting, Model model) {
+        String username = profileSetting.getUsername();
+        String password = profileSetting.getPassword();
+        String newPassword1 = profileSetting.getNewPassword1();
+        String newPassword2 = profileSetting.getNewPassword2();
+        System.out.println("hertil");
+        if (loginService.doPasswordAndUsernameMatch(username,password)) {
+            if(loginService.arePasswordsIdentical(newPassword1,newPassword2)) {
+                if(loginService.isPasswordValid(newPassword1)) {
+                    Login login = new Login(profileSetting.getUsername(),profileSetting.getNewPassword1());
+                    loginManager.updateLogin(login);
+                    model.addAttribute("status", "Login was successfully updated");
+                    return "staff-profile-settings";
+                }
+                model.addAttribute("status", "Password exceeds a maximum of 50 characters");
+                return "staff-profile-settings";
             }
-            model.addAttribute("status", "Login was successfully updated")
-        }*/
+            model.addAttribute("status", "Passwords are not identical");
+            return "staff-profile-settings";
+        }
+        model.addAttribute("status", "Username and/or password is incorrect");
        return "staff-profile-settings";
     }
 

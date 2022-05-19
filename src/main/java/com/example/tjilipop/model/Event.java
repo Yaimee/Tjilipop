@@ -10,6 +10,11 @@ public class Event {
     private Date date;
     private Time time;
     private String info;
+    private String imageURL;
+
+    public Event() {
+
+    }
 
     public Event(ResultSet rs) {
         try {
@@ -18,6 +23,7 @@ public class Event {
             this.date = rs.getDate(3);
             this.time = rs.getTime(4);
             this.info = rs.getString(5);
+            this.imageURL = rs.getString(6);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Something went wrong and the event was not created");
@@ -62,6 +68,14 @@ public class Event {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 
     @Override

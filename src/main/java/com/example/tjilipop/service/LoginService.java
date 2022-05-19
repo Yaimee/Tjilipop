@@ -1,15 +1,14 @@
 package com.example.tjilipop.service;
 
+import com.example.tjilipop.model.Login;
 import com.example.tjilipop.utility.LoginManager;
 
 public class LoginService {
     private LoginManager loginManager = new LoginManager();
 
-    public boolean isPasswordAndUsernameValid(String username, String password) {
+    public boolean isPasswordValid(String password) {
         if(!password.isEmpty() && password.length() <= 50) {
-            if(!username.isEmpty() && username.length() <= 50) {
                 return true;
-            }
         }
         return false;
     }
@@ -22,6 +21,13 @@ public class LoginService {
             return true;
         }
 
+        return false;
+    }
+
+    public boolean arePasswordsIdentical(String password1, String password2) {
+        if(password1.equals(password2)) {
+            return true;
+        }
         return false;
     }
 }

@@ -90,7 +90,7 @@ public class StaffController {
     @PostMapping("/edit-events/event-settings")
     public String eventSettingsData(@ModelAttribute Event eventData) {
         eventsRepository.insert(eventData);
-        return "/edit-events/event-settings";
+        return "staff-event-settings";
     }
 
     @GetMapping("/edit-menu")

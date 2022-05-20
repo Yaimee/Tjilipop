@@ -31,7 +31,24 @@
         </ul>
     </div>
     <div class="right">
-
+        <div class="small-div" th:each="menuItem : ${menuItems}">
+            <!-- denne gør at de står ved siden af hinnanen-->
+            <div class="small-picture">
+                <img th:src="${menuItem.getImageURL()}" height="200px" width="150px">
+            </div>
+            <div class="div1" style="width: 0%">
+                <p>id: </p>
+                <p th:text="${menuItem.getId()}">id: 1</p>
+                <p th:text="${menuItem.getName()}" >Name</p>
+                <p th:text="${menuItem.getProcent()}">%</p>
+                <p th:text="${menuItem.getOrigin()}">Origin</p>
+            </div>
+            <p th:text="${menuItem.getDescription()}"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Maecenas sit amet erat vitae purus auctor luctus.
+                Nunc ac semper tellus. Etiam ac metus at ex faucibus interdum non quis est.
+                Nulla laoreet ante eu justo luctus gravida. Aenean at metus felis.
+                Donec mattis purus sed massa iaculis, id luctus mi.</p>
+        </div>
     </div>
 </div>
 <footer>

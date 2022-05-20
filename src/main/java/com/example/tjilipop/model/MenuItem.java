@@ -10,6 +10,7 @@ public class MenuItem {
     private int procent;
     private String origin;
     private String description;
+    private String imageURL;
 
     MenuItem() {
 
@@ -23,6 +24,7 @@ public class MenuItem {
             this.procent = rs.getInt(4);
             this.origin = rs.getString(5);
             this.description = rs.getString(6);
+            this.imageURL = rs.getString(7);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Something went wrong and the MenuItem was not created.");
@@ -75,6 +77,14 @@ public class MenuItem {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 
     @Override

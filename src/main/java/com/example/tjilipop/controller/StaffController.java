@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -95,6 +96,8 @@ public class StaffController {
 
     @GetMapping("/edit-menu")
     public String editMenu(HttpSession session, Model model) {
+        List<MenuItem> menuItems = menuItemRespository.getList();
+        model.addAttribute("menuItems", menuItems);
         if(session.getAttribute("login") != null) {
             return "staff-edit-menu";
         } else {

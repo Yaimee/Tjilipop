@@ -76,3 +76,21 @@ ul li {
     overflow: scroll;
     width: 100%;
 }
+
+.small-div {
+    display: inline-block;
+    width: 27%;
+    margin: 1%;
+}
+
+.small-picture {
+    display: inline-block;
+    width: 50%;
+    height: 50%;
+}
+
+.div1 {
+    display: inline-block;
+    height: 10%;
+    width: 50%;
+}

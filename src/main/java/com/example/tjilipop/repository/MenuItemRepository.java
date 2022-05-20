@@ -50,7 +50,7 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
 
         try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM menu_items");
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM øl");
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
                 MenuItem menuItem = new MenuItem(rs);

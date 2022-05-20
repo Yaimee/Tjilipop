@@ -32,14 +32,36 @@
     </div>
 
 <div class="center">
-    <div class="small-div">
+    <div class="small-div" th:each="menuItem : ${menuItems}">
         <!-- denne gør at de står ved siden af hinnanen-->
         <div class="small-picture">
             <img src="https://serendipitysocial.com/wp-content/uploads/2019/05/craftbeer.jpg" height="90%" width="90%">
         </div>
 
         <div class="div1" style="width: 0%">
-            <p>id: 1</p>
+            <p>id: </p>
+            <p th:text="${menuItem.getId()}">id: 1</p>
+            <p th:text="${menuItem.getName()}" >Name</p>
+            <p th:text="${menuItem.getPrice()}">Price</p>
+            <p th:text="${menuItem.getProcent()}">%</p>
+            <p th:text="${menuItem.getOrigin()}">Origin</p>
+        </div>
+
+        <p th:text="${menuItem.getDescription()}"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Maecenas sit amet erat vitae purus auctor luctus.
+            Nunc ac semper tellus. Etiam ac metus at ex faucibus interdum non quis est.
+            Nulla laoreet ante eu justo luctus gravida. Aenean at metus felis.
+            Donec mattis purus sed massa iaculis, id luctus mi.</p>
+    </div>
+
+    <!--<div class="small-div">
+        &lt;!&ndash; denne gør at de står ved siden af hinnanen&ndash;&gt;
+        <div class="small-picture">
+            <img src="https://serendipitysocial.com/wp-content/uploads/2019/05/craftbeer.jpg" height="90%" width="90%">
+        </div>
+
+        <div class="div1" style="width: 0%">
+            <p>id: 2</p>
             <p th:text="${nameTest}" >Name</p>
             <p th:text="${priceTest}">Price</p>
             <p th:text="${procentTest}">%</p>
@@ -54,28 +76,7 @@
     </div>
 
     <div class="small-div">
-        <!-- denne gør at de står ved siden af hinnanen-->
-        <div class="small-picture">
-            <img src="https://serendipitysocial.com/wp-content/uploads/2019/05/craftbeer.jpg" height="90%" width="90%">
-        </div>
-
-        <div class="div1" style="width: 0%">
-            <p>id: 2</p>
-            <p>Name</p>
-            <p>Price</p>
-            <p>%</p>
-            <p>Origin</p>
-        </div>
-
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Maecenas sit amet erat vitae purus auctor luctus.
-            Nunc ac semper tellus. Etiam ac metus at ex faucibus interdum non quis est.
-            Nulla laoreet ante eu justo luctus gravida. Aenean at metus felis.
-            Donec mattis purus sed massa iaculis, id luctus mi.</p>
-    </div>
-
-    <div class="small-div">
-        <!-- denne gør at de står ved siden af hinnanen-->
+        &lt;!&ndash; denne gør at de står ved siden af hinnanen&ndash;&gt;
         <div class="small-picture">
             <img src="https://serendipitysocial.com/wp-content/uploads/2019/05/craftbeer.jpg" height="90%" width="90%">
         </div>
@@ -93,12 +94,12 @@
             Nunc ac semper tellus. Etiam ac metus at ex faucibus interdum non quis est.
             Nulla laoreet ante eu justo luctus gravida. Aenean at metus felis.
             Donec mattis purus sed massa iaculis, id luctus mi.</p>
-    </div>
+    </div>-->
 </div>
 
-<div class="center">
+<!--<div class="center">
     <div class="small-div">
-        <!-- denne gør at de står ved siden af hinnanen-->
+        &lt;!&ndash; denne gør at de står ved siden af hinnanen&ndash;&gt;
         <div class="small-picture">
             <img src="https://serendipitysocial.com/wp-content/uploads/2019/05/craftbeer.jpg" height="90%" width="90%">
         </div>
@@ -119,7 +120,7 @@
     </div>
 
     <div class="small-div">
-        <!-- denne gør at de står ved siden af hinnanen-->
+        &lt;!&ndash; denne gør at de står ved siden af hinnanen&ndash;&gt;
         <div class="small-picture">
             <img src="https://serendipitysocial.com/wp-content/uploads/2019/05/craftbeer.jpg" height="90%" width="90%">
         </div>
@@ -140,7 +141,7 @@
     </div>
 
     <div class="small-div">
-        <!-- denne gør at de står ved siden af hinnanen-->
+        &lt;!&ndash; denne gør at de står ved siden af hinnanen&ndash;&gt;
         <div class="small-picture">
             <img src="https://serendipitysocial.com/wp-content/uploads/2019/05/craftbeer.jpg" height="90%" width="90%">
         </div>
@@ -159,7 +160,7 @@
             Nulla laoreet ante eu justo luctus gravida. Aenean at metus felis.
             Donec mattis purus sed massa iaculis, id luctus mi.</p>
     </div>
-</div>
+</div>-->
 
 </body>
 </html>

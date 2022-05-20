@@ -3,6 +3,7 @@ package com.example.tjilipop.controller;
 import com.example.tjilipop.model.MenuItem;
 import com.example.tjilipop.model.Reservation;
 import com.example.tjilipop.repository.CRUDInterface;
+import com.example.tjilipop.repository.MenuItemRepository;
 import com.example.tjilipop.repository.ReservationsRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class MainController {
     private CRUDInterface<Reservation> reservationsRepository = new ReservationsRepository();
+    private CRUDInterface<MenuItem> MenuItemRepository = new MenuItemRepository();
     /*Tobias kode ---------------------------------------------------------------------->*/
 
     /*Her skal man bruge getMapping hvis,
@@ -45,12 +47,10 @@ public class MainController {
 
     @GetMapping("/menu")
     public String menu(@ModelAttribute MenuItem menuItem, Model model) {
-        model.addAttribute("nameTest", menuItem.getName());
-        model.addAttribute("priceTest", menuItem.getPrice());
-        model.addAttribute("procentTest", menuItem.getProcent());
-        model.addAttribute("originTest", menuItem.getOrigin());
-        model.addAttribute("descriptionTest", menuItem.getDescription());
-        return "menu-øl";}
+
+        model.addAttribute("menuItems", MenuItemRepository.getList());
+        return "menu-øl";
+    }
 
     @GetMapping("/menu-vin")
     public String menu_Vin() {return "menu-vin";}

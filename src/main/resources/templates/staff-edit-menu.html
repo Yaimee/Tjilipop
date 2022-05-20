@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Menu</title>
+    <link type="text/css" rel="stylesheet" href="/staff-edit-events-stylesheet.css"/>
 </head>
 <body>
+<header class="header">
+    <img alt="Tjilipop logo" src="https://i.imgur.com/q9EgVdo.png">
+    <h1>Tjilipop</h1>
+</header>
+<div class="topnav">
+    <a href="#menu">Menu</a>
+    <a href="#events">Events</a>
+    <a href="#reservation">Reservation</a>
+    <a href="#contact">Contact</a>
+    <div class="topnav-right">
+        <a href="#aboutus">About us</a>
+        <a href="#about">Staff</a>
+    </div>
+</div>
+<div class="container">
+    <div class="left">
+        <ul>
+            <li><a href="/staff/reservation-requests">Reservation requests</a></li>
+            <li><a href="/staff/edit-events">Edit Events</a></li>
+            <li><a href="/staff/edit-menu">Edit Menu</a></li>
+            <li><a href="/staff/profile-settings">Profile settings</a></li>
+            <li><a href="/staff/invalidate-session">Log out</a></li>
+        </ul>
+    </div>
+    <div class="right">
 
+    </div>
+</div>
+<footer>
+</footer>
 </body>
 </html>

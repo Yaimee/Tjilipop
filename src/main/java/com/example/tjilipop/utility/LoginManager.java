@@ -10,8 +10,8 @@ public class LoginManager {
     public void updateLogin(Login login) {
         try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("UPDATE login SET username = '" + login.getUsername() + "', password = '" + login.getPassword() + "'");
-            stmt.executeQuery();
+            PreparedStatement stmt = con.prepareStatement("UPDATE login SET username = '" + login.getUsername() + "', password = '" + login.getPassword() + "' WHERE username = '" + login.getUsername() + "'");
+            stmt.executeUpdate();
         } catch(SQLException e) {
             e.printStackTrace();
             System.out.println("Something went wrong, updating password in database");

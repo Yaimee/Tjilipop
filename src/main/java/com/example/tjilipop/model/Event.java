@@ -1,5 +1,6 @@
 package com.example.tjilipop.model;
 
+
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Time;
@@ -8,7 +9,7 @@ public class Event {
     private int id;
     private String name;
     private Date date;
-    private Time time;
+    private String time;
     private String info;
     private String imageURL;
 
@@ -21,7 +22,7 @@ public class Event {
             this.id = rs.getInt(1);
             this.name = rs.getString(2);
             this.date = rs.getDate(3);
-            this.time = rs.getTime(4);
+            this.time = rs.getString(4);
             this.info = rs.getString(5);
             this.imageURL = rs.getString(6);
         } catch (Exception e) {
@@ -54,11 +55,11 @@ public class Event {
         this.date = date;
     }
 
-    public Time getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

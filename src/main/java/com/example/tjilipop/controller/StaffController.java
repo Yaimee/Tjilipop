@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -89,6 +88,7 @@ public class StaffController {
 
     @PostMapping("/edit-events/event-settings")
     public String eventSettingsData(@ModelAttribute Event eventData) {
+        System.out.println("hej");
         eventsRepository.insert(eventData);
         return "staff-event-settings";
     }
@@ -125,6 +125,7 @@ public class StaffController {
         String newPassword1 = profileSetting.getNewPassword1();
         String newPassword2 = profileSetting.getNewPassword2();
         System.out.println("hertil");
+
         if (loginService.doPasswordAndUsernameMatch(username,password)) {
             if(loginService.arePasswordsIdentical(newPassword1,newPassword2)) {
                 if(loginService.isPasswordValid(newPassword1)) {

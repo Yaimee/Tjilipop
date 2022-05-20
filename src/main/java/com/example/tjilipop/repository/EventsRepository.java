@@ -16,7 +16,7 @@ public class EventsRepository implements CRUDInterface<Event> {
     public boolean insert(Event event) {
         try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("INSERT INTO events VALUES ('" + event.getName() + "','" + event.getDate() + "','" + event.getTime() + "','" + event.getInfo() + "','" + event.getImageURL() + "')");
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO `tjili-pop`.events (name,date,time,info,image_URL) VALUES ('" + event.getName() + "','" + event.getDate() + "','" + event.getTime() + "','" + event.getInfo() + "','" + event.getImageURL() + "')");
             stmt.execute();
         } catch(SQLException e) {
             e.printStackTrace();

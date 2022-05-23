@@ -96,7 +96,7 @@ public class StaffController {
 
     @GetMapping("/edit-menu")
     public String editMenu(HttpSession session, Model model) {
-        List<MenuItem> menuItems = menuItemRespository.getList("mad");
+        List<MenuItem> menuItems = menuItemRespository.getList("beer");
         model.addAttribute("menuItems", menuItems);
         if(session.getAttribute("login") != null) {
             return "staff-edit-menu";
@@ -112,7 +112,7 @@ public class StaffController {
 
         menuItemRespository.delete(Integer.parseInt(idFormatted));
         if(session.getAttribute("login") != null) {
-            List<MenuItem> menuItems = menuItemRespository.getList("mad");
+            List<MenuItem> menuItems = menuItemRespository.getList("beer");
             model.addAttribute("menuItems", menuItems);
             return "staff-edit-menu";
         } else {
@@ -144,19 +144,18 @@ public class StaffController {
         }
     }
 
-    @PostMapping("/edit-menu/update-menu-item")
+    @PostMapping("/edit-menu/edit-menu-item")
     public String updateMenuItem(@ModelAttribute MenuItem menuItem, HttpSession session, Model model) {
         menuItemRespository.update(menuItem);
         if(session.getAttribute("login") != null) {
             model.addAttribute("menuItem", menuItemRespository.getSingleEntity(menuItem.getId()));
+            model.addAttribute("message","The item has been successfully updated");
             return "staff-edit-menu-item";
         } else {
             model.addAttribute("status", "You have to be logged in before entering staff page");
             return "staff-login";
         }
     }
-
-
 
     @GetMapping("/test")
     public String test() {

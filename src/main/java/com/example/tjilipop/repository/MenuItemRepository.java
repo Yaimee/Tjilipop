@@ -17,7 +17,7 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
     public boolean insert(MenuItem menuItem) {
         try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("INSERT INTO øl VALUES ('" + menuItem.getName() + "'," + menuItem.getPrice() + "," + menuItem.getProcent() + ",'" + menuItem.getOrigin() + "','" + menuItem.getDescription() + "')");
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO beer VALUES ('" + menuItem.getName() + "'," + menuItem.getPrice() + "," + menuItem.getProcent() + ",'" + menuItem.getOrigin() + "','" + menuItem.getDescription() + "')");
             stmt.execute();
         } catch(SQLException e) {
             e.printStackTrace();
@@ -32,7 +32,7 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
 
         try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM øl WHERE id = "+ id);
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM beer WHERE id = "+ id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
             menuItem = new MenuItem(rs);
@@ -73,7 +73,9 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
         try {
             System.out.println(menuItem.toString());
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("UPDATE øl SET id = "+ menuItem.getId() + ", name = '" + menuItem.getName() + "', price = '" + menuItem.getPrice() + "', procent = '" + menuItem.getProcent() + "', origin = '" + menuItem.getOrigin() + "', description = '" + menuItem.getDescription() + "' WHERE id = " + menuItem.getId());
+            String sql = "UPDATE `tjili-pop`.beer SET image_URL = '" + menuItem.getImageURL() + "', name = '" + menuItem.getName() + "', procent = '" + menuItem.getProcent() + "', origin = '" + menuItem.getOrigin() + "', description = '" + menuItem.getDescription() + "' WHERE id = " + menuItem.getId() + ";";
+            System.out.println(sql);
+            PreparedStatement stmt = con.prepareStatement(sql);
             stmt.executeUpdate();
         } catch(SQLException e) {
             e.printStackTrace();
@@ -87,7 +89,7 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
     public boolean delete(int id) {
         try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("DELETE FROM øl WHERE id = " + id);
+            PreparedStatement stmt = con.prepareStatement("DELETE FROM beer WHERE id = " + id);
             stmt.execute();
         } catch(SQLException e) {
             e.printStackTrace();

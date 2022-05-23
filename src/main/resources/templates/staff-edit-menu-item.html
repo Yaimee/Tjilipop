@@ -34,18 +34,16 @@
     <div class="right">
         <div class="edit-menu-item" th:if="${menuItem == null}">
             <form action="/staff/edit-menu/edit-menu-item" method="POST" class="staff-edit-menu-item">
-                <label for="id1">ID (if left out, an ID will be generated in the database): </label>
-                <input id="id1" class="ID" name="id" type="text">
                 <label for="name1">Name:</label>
                 <input id="name1" class="name" name="name" type="text" required>
                 <label for="procent1">Procent: </label>
                 <input id="procent1" class="procent" name="procent" type="text" placeholder="dd-mm-yyyy">
                 <label for="origin1">Origin: </label>
                 <input id="origin1"class="origin" name="origin" type="text">
-                <!--<label for="info1">Description: </label>
+                <label for="info1">Description: </label>
                 <textarea id="info1"name="info" class="info" style="width:200px; height:100px;">
                     <span th:text="${menuItem.getDescription()}" th:remove="tag"></span>
-                </textarea>-->
+                </textarea>
                 <label for="url1">Enter a https://(URL) for an image on the web:</label>
                 <input id="url1" type="url" name="imageURL" class="url"
                        placeholder="Enter-image-URL"
@@ -54,9 +52,9 @@
             </form>
         </div>
         <div class="edit-menu-item" th:unless="${menuItem == null}">
-            <form action="/staff/edit-menu/update-menu-item" method="POST" class="staff-edit-menu-item">
+            <form action="/staff/edit-menu/edit-menu-item" method="POST" class="staff-edit-menu-item">
                 <label for="id2">ID: </label>
-                <input id="id2" class="ID" name="id" type="number" th:value="${menuItem.getId()}">
+                <input id="id2" type="text" name="id" th:value="${menuItem.getId()}" readonly>
                 <label for="name2">Name:</label>
                 <input id="name2" class="name" name="name" type="text" th:value="${menuItem.getName()}" required>
                 <label for="procent2">Procent: </label>
@@ -64,8 +62,7 @@
                 <label for="origin2">Origin: </label>
                 <input id="origin2" class="origin" name="origin" type="text" th:value="${menuItem.getOrigin()}">
                 <label for="info2">Description: </label>
-                <textarea id="info2" name="info" class="info" style="width:200px; height:100px;">
-                    <span th:text="${menuItem.getDescription()}" th:remove="tag"></span>
+                <textarea id="info2" name="description" th:text="${menuItem.getDescription()}" class="info" style="width:200px; height:100px;">
                 </textarea>
                 <label for="url2">Enter a https://(URL) for an image on the web:</label>
                 <input id="url2" type="url" th:value="${menuItem.getImageURL()}" name="imageURL" class="url"
@@ -73,7 +70,9 @@
                        pattern="https://.*" size="30">
                 <button type="submit">Confirm</button>
             </form>
+            <span th:text="${message}"></span>
         </div>
+
     </div>
 </div>
 <footer>

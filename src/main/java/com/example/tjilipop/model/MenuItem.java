@@ -7,7 +7,7 @@ public class MenuItem {
     private int id;
     private String name;
     private int price;
-    private int procent;
+    private double procent;
     private String origin;
     private String description;
     private String imageURL;
@@ -21,7 +21,7 @@ public class MenuItem {
             this.id = rs.getInt(1);
             this.name = rs.getString(2);
             this.price = rs.getInt(3);
-            this.procent = rs.getInt(4);
+            this.procent = rs.getDouble(4);
             this.origin = rs.getString(5);
             this.description = rs.getString(6);
             this.imageURL = rs.getString(7);
@@ -55,7 +55,7 @@ public class MenuItem {
         return procent;
     }
 
-    public void setProcent(int procent) {
+    public void setProcent(double procent) {
         this.procent = procent;
     }
 

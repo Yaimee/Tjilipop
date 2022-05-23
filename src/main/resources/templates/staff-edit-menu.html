@@ -11,13 +11,13 @@
     <h1>Tjilipop</h1>
 </header>
 <div class="topnav">
-    <a href="#menu">Menu</a>
-    <a href="#events">Events</a>
-    <a href="#reservation">Reservation</a>
-    <a href="#contact">Contact</a>
+    <a href="/menu">Menu</a>
+    <a href="/events">Events</a>
+    <a href="/reservation">Reservation</a>
+    <a href="/contact">Contact</a>
     <div class="topnav-right">
-        <a href="#aboutus">About us</a>
-        <a href="#about">Staff</a>
+        <a href="/">About us</a>
+        <a href="/staff">Staff</a>
     </div>
 </div>
 <div class="container">
@@ -35,6 +35,16 @@
             <!-- denne gør at de står ved siden af hinnanen-->
             <div class="small-picture">
                 <img th:src="${menuItem.getImageURL()}" height="200px" width="150px">
+            </div>
+            <div class="menu-item-buttons">
+                <form th:action="@{/staff/edit-menu/delete/${id}(id=${menuItem.getId()})}" method="POST">
+                    <!--<a type="submit"><img src="https://i.imgur.com/JBsIqcy.png"></a>-->
+                    <input type="image" src="https://i.imgur.com/JBsIqcy.png">
+                </form>
+                <form th:action="@{/staff/edit-menu/edit-menu-item/${id}(id=${menuItem.getId()})}" method="POST">
+                    <!--<a th:href="@{/staff/edit-events/event-settings/${id}(id=${menuItem.getId()})}"><img src="https://i.imgur.com/Pfb9hkO.png"></a>-->
+                    <input type="image" src="https://i.imgur.com/Pfb9hkO.png">
+                </form>
             </div>
             <div class="div1" style="width: 0%">
                 <p>id: </p>

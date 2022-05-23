@@ -17,7 +17,7 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
     public boolean insert(MenuItem menuItem) {
         try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("INSERT INTO menu_items  VALUES ('" + menuItem.getName() + "'," + menuItem.getPrice() + "," + menuItem.getProcent() + ",'" + menuItem.getOrigin() + "','" + menuItem.getDescription() + "')");
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO øl VALUES ('" + menuItem.getName() + "'," + menuItem.getPrice() + "," + menuItem.getProcent() + ",'" + menuItem.getOrigin() + "','" + menuItem.getDescription() + "')");
             stmt.execute();
         } catch(SQLException e) {
             e.printStackTrace();
@@ -68,7 +68,7 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
     public boolean update(MenuItem menuItem) {
         try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("UPDATE menu_items SET name = '" + menuItem.getName() + "', price = '" + menuItem.getPrice() + "', procent = '" + menuItem.getProcent() + "', origin = '" + menuItem.getOrigin() + "', description = '" + menuItem.getDescription() + "' WHERE id = " + menuItem.getId());
+            PreparedStatement stmt = con.prepareStatement("UPDATE øl SET name = '" + menuItem.getName() + "', price = '" + menuItem.getPrice() + "', procent = '" + menuItem.getProcent() + "', origin = '" + menuItem.getOrigin() + "', description = '" + menuItem.getDescription() + "' WHERE id = " + menuItem.getId());
             stmt.executeQuery();
         } catch(SQLException e) {
             e.printStackTrace();
@@ -82,8 +82,8 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
     public boolean delete(int id) {
         try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("DELETE FROM menu_item WHERE id = " + id);
-            stmt.executeQuery();
+            PreparedStatement stmt = con.prepareStatement("DELETE FROM øl WHERE id = " + id);
+            stmt.execute();
         } catch(SQLException e) {
             e.printStackTrace();
             System.out.println("Something went wrong, deleting an item from database");

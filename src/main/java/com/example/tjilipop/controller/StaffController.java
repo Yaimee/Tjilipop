@@ -106,6 +106,58 @@ public class StaffController {
         }
     }
 
+    @PostMapping ("/edit-menu/delete/{id}")
+    public String deleteMenuItem(HttpSession session, @PathVariable("id") String id, Model model) {
+        String idFormatted = "" + id.charAt(1);
+
+        menuItemRespository.delete(Integer.parseInt(idFormatted));
+        if(session.getAttribute("login") != null) {
+            List<MenuItem> menuItems = menuItemRespository.getList();
+            model.addAttribute("menuItems", menuItems);
+            return "staff-edit-menu";
+        } else {
+            model.addAttribute("status", "You have to be logged in before entering staff page");
+            return "staff-login";
+        }
+    }
+
+    @GetMapping("/edit-menu/edit-menu-item/{id}")
+    public String editMenuItem(@PathVariable int id, HttpSession session, Model model) {
+        if(session.getAttribute("login") != null) {
+            model.addAttribute("menuItem", menuItemRespository.getSingleEntity(id));
+            return "staff-edit-menu-item";
+        } else {
+            model.addAttribute("status", "You have to be logged in before entering staff page");
+            return "staff-login";
+        }
+    }
+
+    @PostMapping("/edit-menu/edit-menu-item/{id}")
+    public String retrieveMenuItem(@PathVariable String id, HttpSession session, Model model) {
+        String idFormatted = "" + id.charAt(1);
+        if(session.getAttribute("login") != null) {
+            model.addAttribute("menuItem", menuItemRespository.getSingleEntity(Integer.parseInt(idFormatted)));
+            return "staff-edit-menu-item";
+        } else {
+            model.addAttribute("status", "You have to be logged in before entering staff page");
+            return "staff-login";
+        }
+    }
+
+    @PostMapping("/edit-menu/update-menu-item")
+    public String updateMenuItem(@ModelAttribute MenuItem menuItem, HttpSession session, Model model) {
+        menuItemRespository.update(menuItem);
+        if(session.getAttribute("login") != null) {
+            model.addAttribute("menuItem", menuItemRespository.getSingleEntity(menuItem.getId()));
+            return "staff-edit-menu-item";
+        } else {
+            model.addAttribute("status", "You have to be logged in before entering staff page");
+            return "staff-login";
+        }
+    }
+
+
+
     @GetMapping("/test")
     public String test() {
         return "test";

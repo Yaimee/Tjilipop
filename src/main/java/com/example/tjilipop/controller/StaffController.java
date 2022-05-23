@@ -150,7 +150,7 @@ public class StaffController {
         if(session.getAttribute("login") != null) {
             model.addAttribute("menuItem", menuItemRespository.getSingleEntity(menuItem.getId()));
             model.addAttribute("message","The item has been successfully updated");
-            return "staff-edit-menu-item";
+            return "redirect:/staff/edit-menu";
         } else {
             model.addAttribute("status", "You have to be logged in before entering staff page");
             return "staff-login";

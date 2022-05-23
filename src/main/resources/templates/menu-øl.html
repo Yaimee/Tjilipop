@@ -35,7 +35,7 @@
     <div class="small-div" th:each="menuItem : ${menuItems}">
         <!-- denne gør at de står ved siden af hinnanen-->
         <div class="small-picture">
-            <img src="https://serendipitysocial.com/wp-content/uploads/2019/05/craftbeer.jpg" height="90%" width="90%">
+            <img th:src="${menuItem.getImageURL}" height="90%" width="90%">
         </div>
 
         <div class="div1" style="width: 0%">

@@ -35,7 +35,7 @@
     <div class="small-div" th:each="menuItem : ${menuItems}">
         <!-- denne gør at de står ved siden af hinnanen-->
         <div class="small-picture">
-            <img src="https://images.unsplash.com/photo-1560148218-1a83060f7b32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8d2luZSUyMGJvdHRsZXxlbnwwfHwwfHw%3D&w=1000&q=80" height="90%" width="90%">
+            <img th:src="${menuItem.getImageURL}" height="90%" width="90%">
         </div>
 
         <div class="div1" style="width: 0%">

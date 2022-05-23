@@ -35,7 +35,7 @@
     <div class="small-div" th:each="menuItem : ${menuItems}">
         <!-- denne gør at de står ved siden af hinnanen-->
         <div class="small-picture">
-            <img src="https://baregodsmag.dk/wp-content/uploads/2020/01/limbo-riesling-768x1024.jpg" height="90%" width="90%">
+            <img th:src="${menuItem.getImageURL}" height="90%" width="90%">
         </div>
 
         <div class="div1" style="width: 0%">

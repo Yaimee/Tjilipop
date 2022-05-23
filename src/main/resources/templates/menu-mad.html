@@ -32,128 +32,21 @@
 </div>
 
 <div class="center">
-    <div class="small-div">
+    <div class="small-div" th:each="menuItem : ${menuItems}">
         <!-- denne gør at de står ved siden af hinnanen-->
         <div class="small-picture">
             <img src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnVyZ2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80" height="90%" width="90%">
         </div>
 
         <div class="div1" style="width: 0%">
-            <p>id: 28</p>
-            <p>Name</p>
-            <p>Price</p>
-            <p>%</p>
-            <p>Origin</p>
+            <p>id: </p>
+            <p th:text="${menuItem.getId()}">id: 1</p>
+            <p th:text="${menuItem.getName()}" >Name</p>
+            <p th:text="${menuItem.getPrice()}">Price</p>
+            <p th:text="${menuItem.getOrigin()}">Origin</p>
         </div>
 
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Maecenas sit amet erat vitae purus auctor luctus.
-            Nunc ac semper tellus. Etiam ac metus at ex faucibus interdum non quis est.
-            Nulla laoreet ante eu justo luctus gravida. Aenean at metus felis.
-            Donec mattis purus sed massa iaculis, id luctus mi.</p>
-    </div>
-
-    <div class="small-div">
-        <!-- denne gør at de står ved siden af hinnanen-->
-        <div class="small-picture">
-            <img src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnVyZ2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80" height="90%" width="90%">
-        </div>
-
-        <div class="div1" style="width: 0%">
-            <p>id: 29</p>
-            <p>Name</p>
-            <p>Price</p>
-            <p>%</p>
-            <p>Origin</p>
-        </div>
-
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Maecenas sit amet erat vitae purus auctor luctus.
-            Nunc ac semper tellus. Etiam ac metus at ex faucibus interdum non quis est.
-            Nulla laoreet ante eu justo luctus gravida. Aenean at metus felis.
-            Donec mattis purus sed massa iaculis, id luctus mi.</p>
-    </div>
-
-    <div class="small-div">
-        <!-- denne gør at de står ved siden af hinnanen-->
-        <div class="small-picture">
-            <img src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnVyZ2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80" height="90%" width="90%">
-        </div>
-
-        <div class="div1" style="width: 0%">
-            <p>id: 30</p>
-            <p>Name</p>
-            <p>Price</p>
-            <p>%</p>
-            <p>Origin</p>
-        </div>
-
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Maecenas sit amet erat vitae purus auctor luctus.
-            Nunc ac semper tellus. Etiam ac metus at ex faucibus interdum non quis est.
-            Nulla laoreet ante eu justo luctus gravida. Aenean at metus felis.
-            Donec mattis purus sed massa iaculis, id luctus mi.</p>
-    </div>
-</div>
-
-<div class="center">
-    <div class="small-div">
-        <!-- denne gør at de står ved siden af hinnanen-->
-        <div class="small-picture">
-            <img src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnVyZ2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80" height="90%" width="90%">
-        </div>
-
-        <div class="div1" style="width: 0%">
-            <p>id: 31</p>
-            <p>Name</p>
-            <p>Price</p>
-            <p>%</p>
-            <p>Origin</p>
-        </div>
-
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Maecenas sit amet erat vitae purus auctor luctus.
-            Nunc ac semper tellus. Etiam ac metus at ex faucibus interdum non quis est.
-            Nulla laoreet ante eu justo luctus gravida. Aenean at metus felis.
-            Donec mattis purus sed massa iaculis, id luctus mi.</p>
-    </div>
-
-    <div class="small-div">
-        <!-- denne gør at de står ved siden af hinnanen-->
-        <div class="small-picture">
-            <img src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnVyZ2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80" height="90%" width="90%">
-        </div>
-
-        <div class="div1" style="width: 0%">
-            <p>id: 32</p>
-            <p>Name</p>
-            <p>Price</p>
-            <p>%</p>
-            <p>Origin</p>
-        </div>
-
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Maecenas sit amet erat vitae purus auctor luctus.
-            Nunc ac semper tellus. Etiam ac metus at ex faucibus interdum non quis est.
-            Nulla laoreet ante eu justo luctus gravida. Aenean at metus felis.
-            Donec mattis purus sed massa iaculis, id luctus mi.</p>
-    </div>
-
-    <div class="small-div">
-        <!-- denne gør at de står ved siden af hinnanen-->
-        <div class="small-picture">
-            <img src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnVyZ2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80" height="90%" width="90%">
-        </div>
-
-        <div class="div1" style="width: 0%">
-            <p>id: 33</p>
-            <p>Name</p>
-            <p>Price</p>
-            <p>%</p>
-            <p>Origin</p>
-        </div>
-
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <p th:text="${menuItem.getDescription()}"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Maecenas sit amet erat vitae purus auctor luctus.
             Nunc ac semper tellus. Etiam ac metus at ex faucibus interdum non quis est.
             Nulla laoreet ante eu justo luctus gravida. Aenean at metus felis.

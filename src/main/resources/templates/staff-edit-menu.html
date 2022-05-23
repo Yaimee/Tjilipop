@@ -37,11 +37,11 @@
                 <img th:src="${menuItem.getImageURL()}" height="200px" width="150px">
             </div>
             <div class="menu-item-buttons">
-                <form th:action="@{/staff/edit-menu/delete/${id}(id=${menuItem.getId()})}" method="POST">
+                <form th:action="@{/staff/edit-menu/delete/{id}(id=${menuItem.getId()})}" method="POST">
                     <!--<a type="submit"><img src="https://i.imgur.com/JBsIqcy.png"></a>-->
                     <input type="image" src="https://i.imgur.com/JBsIqcy.png">
                 </form>
-                <form th:action="@{/staff/edit-menu/edit-menu-item/${id}(id=${menuItem.getId()})}" method="POST">
+                <form th:action="@{/staff/edit-menu/edit-menu-item/{id}(id=${menuItem.getId()})}" method="POST">
                     <!--<a th:href="@{/staff/edit-events/event-settings/${id}(id=${menuItem.getId()})}"><img src="https://i.imgur.com/Pfb9hkO.png"></a>-->
                     <input type="image" src="https://i.imgur.com/Pfb9hkO.png">
                 </form>

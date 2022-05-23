@@ -12,11 +12,12 @@ public class MenuItem {
     private String description;
     private String imageURL;
 
-    MenuItem() {
+    public MenuItem() {
 
     }
 
     public MenuItem(ResultSet rs) {
+
         try {
             this.id = rs.getInt(1);
             this.name = rs.getString(2);
@@ -43,6 +44,10 @@ public class MenuItem {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getPrice() {
         return price;
     }
@@ -57,10 +62,6 @@ public class MenuItem {
 
     public void setProcent(double procent) {
         this.procent = procent;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getOrigin() {
@@ -90,10 +91,13 @@ public class MenuItem {
     @Override
     public String toString() {
         return "MenuItem{" +
-                "name='" + name + '\'' +
-                ", date=" +
-                ", time=" +
-                ", info='" + description + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", procent=" + procent +
+                ", origin='" + origin + '\'' +
+                ", description='" + description + '\'' +
+                ", imageURL='" + imageURL + '\'' +
                 '}';
     }
 }

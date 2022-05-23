@@ -38,7 +38,7 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
             menuItem = new MenuItem(rs);
         } catch(SQLException e) {
             e.printStackTrace();
-            System.out.println("Something went wrong in fetching an event from database");
+            System.out.println("Something went wrong in fetching a MenuItem from database");
         }
 
         return menuItem;
@@ -66,10 +66,12 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
 
     @Override
     public boolean update(MenuItem menuItem) {
+
         try {
+            System.out.println(menuItem.toString());
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("UPDATE øl SET name = '" + menuItem.getName() + "', price = '" + menuItem.getPrice() + "', procent = '" + menuItem.getProcent() + "', origin = '" + menuItem.getOrigin() + "', description = '" + menuItem.getDescription() + "' WHERE id = " + menuItem.getId());
-            stmt.execute();
+            PreparedStatement stmt = con.prepareStatement("UPDATE øl SET id = "+ menuItem.getId() + ", name = '" + menuItem.getName() + "', price = '" + menuItem.getPrice() + "', procent = '" + menuItem.getProcent() + "', origin = '" + menuItem.getOrigin() + "', description = '" + menuItem.getDescription() + "' WHERE id = " + menuItem.getId());
+            stmt.executeUpdate();
         } catch(SQLException e) {
             e.printStackTrace();
             System.out.println("Something went wrong, updating item in database");

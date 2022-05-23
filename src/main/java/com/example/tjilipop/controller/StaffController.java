@@ -133,10 +133,10 @@ public class StaffController {
     }
 
     @PostMapping("/edit-menu/edit-menu-item/{id}")
-    public String retrieveMenuItem(@PathVariable String id, HttpSession session, Model model) {
-        String idFormatted = "" + id.charAt(1);
+    public String retrieveMenuItem(@PathVariable int id, HttpSession session, Model model) {
+
         if(session.getAttribute("login") != null) {
-            model.addAttribute("menuItem", menuItemRespository.getSingleEntity(Integer.parseInt(idFormatted)));
+            model.addAttribute("menuItem", menuItemRespository.getSingleEntity(id));
             return "staff-edit-menu-item";
         } else {
             model.addAttribute("status", "You have to be logged in before entering staff page");
@@ -147,7 +147,6 @@ public class StaffController {
     @PostMapping("/edit-menu/update-menu-item")
     public String updateMenuItem(@ModelAttribute MenuItem menuItem, HttpSession session, Model model) {
         menuItemRespository.update(menuItem);
-        System.out.println(menuItem.toString());
         if(session.getAttribute("login") != null) {
             model.addAttribute("menuItem", menuItemRespository.getSingleEntity(menuItem.getId()));
             return "staff-edit-menu-item";

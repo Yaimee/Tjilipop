@@ -147,6 +147,7 @@ public class StaffController {
     @PostMapping("/edit-menu/update-menu-item")
     public String updateMenuItem(@ModelAttribute MenuItem menuItem, HttpSession session, Model model) {
         menuItemRespository.update(menuItem);
+        System.out.println(menuItem.toString());
         if(session.getAttribute("login") != null) {
             model.addAttribute("menuItem", menuItemRespository.getSingleEntity(menuItem.getId()));
             return "staff-edit-menu-item";

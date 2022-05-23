@@ -34,6 +34,8 @@
     <div class="right">
         <div class="edit-menu-item" th:if="${menuItem == null}">
             <form action="/staff/edit-menu/edit-menu-item" method="POST" class="staff-edit-menu-item">
+                <label for="id1">ID (if left out, an ID will be generated in the database): </label>
+                <input id="id1" class="ID" name="id" type="text">
                 <label for="name1">Name:</label>
                 <input id="name1" class="name" name="name" type="text" required>
                 <label for="procent1">Procent: </label>
@@ -53,6 +55,8 @@
         </div>
         <div class="edit-menu-item" th:unless="${menuItem == null}">
             <form action="/staff/edit-menu/update-menu-item" method="POST" class="staff-edit-menu-item">
+                <label for="id2">ID: </label>
+                <input id="id2" class="ID" name="id" type="number" th:value="${menuItem.getId()}">
                 <label for="name2">Name:</label>
                 <input id="name2" class="name" name="name" type="text" th:value="${menuItem.getName()}" required>
                 <label for="procent2">Procent: </label>

@@ -69,7 +69,7 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
         try {
             Connection con = Database.getConnection();
             PreparedStatement stmt = con.prepareStatement("UPDATE øl SET name = '" + menuItem.getName() + "', price = '" + menuItem.getPrice() + "', procent = '" + menuItem.getProcent() + "', origin = '" + menuItem.getOrigin() + "', description = '" + menuItem.getDescription() + "' WHERE id = " + menuItem.getId());
-            stmt.executeQuery();
+            stmt.execute();
         } catch(SQLException e) {
             e.printStackTrace();
             System.out.println("Something went wrong, updating item in database");

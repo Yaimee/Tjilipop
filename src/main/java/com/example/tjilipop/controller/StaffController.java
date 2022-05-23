@@ -69,7 +69,9 @@ public class StaffController {
 
     @GetMapping("/edit-events")
     public String editEvents(HttpSession session, Model model) {
+        List<Event> events = eventsRepository.getList("event");
         if(session.getAttribute("login") != null) {
+            model.addAttribute("events", events);
             return "staff-edit-events";
         } else {
             model.addAttribute("status","You have to be logged in before entering staff page");
@@ -87,7 +89,7 @@ public class StaffController {
         }
     }
 
-    @PostMapping("/edit-events/event-settings")
+    @PostMapping("/edit-events/event-settings/")
     public String eventSettingsData(@ModelAttribute Event eventData) {
         System.out.println("hej");
         eventsRepository.insert(eventData);
@@ -107,10 +109,9 @@ public class StaffController {
     }
 
     @PostMapping ("/edit-menu/delete/{id}")
-    public String deleteMenuItem(HttpSession session, @PathVariable("id") String id, Model model) {
-        String idFormatted = "" + id.charAt(1);
+    public String deleteMenuItem(HttpSession session, @PathVariable int id, Model model) {
 
-        menuItemRespository.delete(Integer.parseInt(idFormatted));
+        menuItemRespository.delete(id);
         if(session.getAttribute("login") != null) {
             List<MenuItem> menuItems = menuItemRespository.getList("beer");
             model.addAttribute("menuItems", menuItems);

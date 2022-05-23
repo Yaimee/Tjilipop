@@ -48,21 +48,33 @@ public class MainController {
     @GetMapping("/menu")
     public String menu(@ModelAttribute MenuItem menuItem, Model model) {
 
-        model.addAttribute("menuItems", MenuItemRepository.getList());
+        model.addAttribute("menuItems", MenuItemRepository.getList("øl"));
         return "menu-øl";
     }
 
     @GetMapping("/menu-vin")
-    public String menu_Vin() {return "menu-vin";}
+    public String menu_Vin(@ModelAttribute MenuItem menuItem, Model model) {
+
+        model.addAttribute("menuItems", MenuItemRepository.getList("vin"));
+        return "menu-vin";}
 
     @GetMapping("/menu-spiritus")
-    public String menu_spiritus() {return "menu-spiritus";}
+    public String menu_spiritus(@ModelAttribute MenuItem menuItem, Model model) {
+
+        model.addAttribute("menuItems", MenuItemRepository.getList("spiritus"));
+        return "menu-spiritus";}
 
     @GetMapping("/menu-uden-alc")
-    public String menu_uden_procent() {return "menu-uden-alc";}
+    public String menu_uden_procent(@ModelAttribute MenuItem menuItem, Model model) {
+
+        model.addAttribute("menuItems", MenuItemRepository.getList("uden"));
+        return "menu-uden-alc";}
 
     @GetMapping("/menu-mad")
-    public String menu_mad() {return "menu-mad";}
+    public String menu_mad(@ModelAttribute MenuItem menuItem, Model model) {
+
+        model.addAttribute("menuItems", MenuItemRepository.getList("mad"));
+        return "menu-mad";}
 
     /*Her skal vi både bruge en GetMapping og en PostMapping*/
     @GetMapping("/test")

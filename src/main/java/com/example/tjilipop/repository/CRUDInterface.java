@@ -10,7 +10,7 @@ public interface CRUDInterface<T> {
 
     //Read
     public T getSingleEntity(@RequestParam(required = false) int id);
-    public List<T> getList();
+    public List<T> getList(String dbTable);
 
     //Update
     public boolean update(T entity);

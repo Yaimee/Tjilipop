@@ -44,7 +44,7 @@ public class EventsRepository implements CRUDInterface<Event> {
     }
 
     @Override
-    public List<Event> getList() {
+    public List<Event> getList(String dbTable) {
         List<Event> eventList = new ArrayList<>();
 
             try {

@@ -45,7 +45,7 @@ public class ReservationsRepository implements CRUDInterface<Reservation> {
     }
 
     @Override
-    public List<Reservation> getList() {
+    public List<Reservation> getList(String dbTable) {
         List<Reservation> reservationList = new ArrayList<>();
 
         try {

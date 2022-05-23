@@ -57,7 +57,7 @@ public class StaffController {
 
     @GetMapping("/reservation-requests")
     public String reservationRequests(HttpSession session, Model model) {
-        List<Reservation> reservationList = reservationsRepository.getList();
+        List<Reservation> reservationList = reservationsRepository.getList("reservation");
         model.addAttribute("reservations", reservationList);
         if(session.getAttribute("login") != null) {
             return "staff-reservation-requests";
@@ -96,7 +96,7 @@ public class StaffController {
 
     @GetMapping("/edit-menu")
     public String editMenu(HttpSession session, Model model) {
-        List<MenuItem> menuItems = menuItemRespository.getList();
+        List<MenuItem> menuItems = menuItemRespository.getList("mad");
         model.addAttribute("menuItems", menuItems);
         if(session.getAttribute("login") != null) {
             return "staff-edit-menu";
@@ -112,7 +112,7 @@ public class StaffController {
 
         menuItemRespository.delete(Integer.parseInt(idFormatted));
         if(session.getAttribute("login") != null) {
-            List<MenuItem> menuItems = menuItemRespository.getList();
+            List<MenuItem> menuItems = menuItemRespository.getList("mad");
             model.addAttribute("menuItems", menuItems);
             return "staff-edit-menu";
         } else {

@@ -23,7 +23,7 @@ public class LoginManager {
 
         try {
             Connection con = Database.getConnection();
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM `tjili-pop`.login");
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM `menu_test`.`user`");
             ResultSet rs = stmt.executeQuery();
             rs.next();
             login = new Login(rs);

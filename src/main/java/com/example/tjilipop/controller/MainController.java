@@ -1,8 +1,10 @@
 package com.example.tjilipop.controller;
 
+import com.example.tjilipop.model.Event;
 import com.example.tjilipop.model.MenuItem;
 import com.example.tjilipop.model.Reservation;
 import com.example.tjilipop.repository.CRUDInterface;
+import com.example.tjilipop.repository.EventsRepository;
 import com.example.tjilipop.repository.MenuItemRepository;
 import com.example.tjilipop.repository.ReservationsRepository;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class MainController {
     private CRUDInterface<Reservation> reservationsRepository = new ReservationsRepository();
+    private CRUDInterface<Event> EventsRepository = new EventsRepository();
     private CRUDInterface<MenuItem> MenuItemRepository = new MenuItemRepository();
     /*Tobias kode ---------------------------------------------------------------------->*/
 
@@ -26,7 +29,8 @@ public class MainController {
     }
 
     @GetMapping("/events")
-    public String events() {
+    public String events(@ModelAttribute Event event, Model model) {
+        model.addAttribute("events", EventsRepository.getList("events"));
         return "events";
     }
 

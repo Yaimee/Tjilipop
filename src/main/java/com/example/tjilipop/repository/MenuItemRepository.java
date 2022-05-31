@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MenuItemRepository implements CRUDInterface<MenuItem> {
-    private CRUDInterface<Event> eventsRepository = new EventsRepository();
+
     @Override
     public boolean insert(MenuItem menuItem) {
         try {

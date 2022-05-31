@@ -49,7 +49,10 @@ public class EventsRepository implements CRUDInterface<Event> {
 
             try {
                 Connection con = Database.getConnection();
-                PreparedStatement stmt = con.prepareStatement("SELECT * FROM events");
+                String strQuery = "SELECT * FROM tableName";
+                /*ved at bruge replace kan man erstatte noget i en string med noget andet*/
+                String query = strQuery.replace("tableName",dbTable);
+                PreparedStatement stmt = con.prepareStatement(query);
                 ResultSet rs = stmt.executeQuery();
                 while(rs.next()){
                     Event event = new Event(rs);

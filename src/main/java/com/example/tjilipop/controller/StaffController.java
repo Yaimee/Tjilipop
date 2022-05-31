@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
-
+//Rasmus's kode
 @Controller
 @RequestMapping("/staff")
 public class StaffController {
@@ -32,10 +32,9 @@ public class StaffController {
             return "staff-login";
         }
     }
-
+    //Session er implementeret for at teste om der er logget ind, før man kan bruge staff
     @PostMapping()
     public String login(@ModelAttribute Login loginData, HttpSession session, Model model) {
-        System.out.println(loginData.toString());
         if(loginService.doPasswordAndUsernameMatch(loginData.getUsername(),loginData.getPassword())) {
           session.setAttribute("login", loginData.getPassword());
             return "staff-frontpage";
@@ -66,7 +65,7 @@ public class StaffController {
             return "staff-login";
         }
     }
-
+    //Events
     @GetMapping("/edit-events")
     public String editEvents(HttpSession session, Model model) {
         List<Event> events = eventsRepository.getList("event");
@@ -79,9 +78,10 @@ public class StaffController {
         }
     }
 
-    @GetMapping("/edit-events/event-settings")
-    public String eventSettings(HttpSession session, Model model) {
+    @GetMapping("/edit-events/event-settings/{id}")
+    public String eventSettings(@PathVariable int id, HttpSession session, Model model) {
         if(session.getAttribute("login") != null) {
+            model.addAttribute("event",eventsRepository.getSingleEntity(id));
             return "staff-event-settings";
         } else {
             model.addAttribute("status","You have to be logged in before entering staff page");
@@ -91,11 +91,10 @@ public class StaffController {
 
     @PostMapping("/edit-events/event-settings/")
     public String eventSettingsData(@ModelAttribute Event eventData) {
-        System.out.println("hej");
         eventsRepository.insert(eventData);
         return "staff-event-settings";
     }
-
+    //Menu
     @GetMapping("/edit-menu")
     public String editMenu(HttpSession session, Model model) {
         List<MenuItem> menuItems = menuItemRespository.getList("beer");
@@ -179,7 +178,6 @@ public class StaffController {
         String password = profileSetting.getPassword();
         String newPassword1 = profileSetting.getNewPassword1();
         String newPassword2 = profileSetting.getNewPassword2();
-        System.out.println("hertil");
 
         if (loginService.doPasswordAndUsernameMatch(username,password)) {
             if(loginService.arePasswordsIdentical(newPassword1,newPassword2)) {

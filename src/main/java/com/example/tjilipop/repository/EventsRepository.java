@@ -1,7 +1,7 @@
 package com.example.tjilipop.repository;
 
 import com.example.tjilipop.model.Event;
-import com.example.tjilipop.utility.Database;
+import com.example.tjilipop.utility.DatabaseManager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +15,7 @@ public class EventsRepository implements CRUDInterface<Event> {
     @Override
     public boolean insert(Event event) {
         try {
-            Connection con = Database.getConnection();
+            Connection con = DatabaseManager.getConnection();
             PreparedStatement stmt = con.prepareStatement("INSERT INTO `tjili-pop`.events (name,date,time,info,image_URL) VALUES ('" + event.getName() + "','" + event.getDate() + "','" + event.getTime() + "','" + event.getInfo() + "','" + event.getImageURL() + "')");
             stmt.execute();
         } catch(SQLException e) {
@@ -30,7 +30,7 @@ public class EventsRepository implements CRUDInterface<Event> {
         Event event = null;
 
         try {
-            Connection con = Database.getConnection();
+            Connection con = DatabaseManager.getConnection();
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM events WHERE id = "+ id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
@@ -48,7 +48,7 @@ public class EventsRepository implements CRUDInterface<Event> {
         List<Event> eventList = new ArrayList<>();
 
             try {
-                Connection con = Database.getConnection();
+                Connection con = DatabaseManager.getConnection();
                 PreparedStatement stmt = con.prepareStatement("SELECT * FROM events");
                 ResultSet rs = stmt.executeQuery();
                 while(rs.next()){
@@ -67,7 +67,7 @@ public class EventsRepository implements CRUDInterface<Event> {
     public boolean update(Event event) {
 
         try {
-            Connection con = Database.getConnection();
+            Connection con = DatabaseManager.getConnection();
             PreparedStatement stmt = con.prepareStatement("UPDATE events SET name = '" + event.getName() + "', date = '" + event.getDate() + "', time = '" + event.getTime() + "', info = '" + event.getInfo() + "' WHERE id = "+ event.getId());
             stmt.executeQuery();
         } catch(SQLException e) {
@@ -81,7 +81,7 @@ public class EventsRepository implements CRUDInterface<Event> {
     @Override
     public boolean delete(int id) {
         try {
-            Connection con = Database.getConnection();
+            Connection con = DatabaseManager.getConnection();
             PreparedStatement stmt = con.prepareStatement("DELETE FROM events WHERE id = " + id);
             stmt.executeQuery();
         } catch(SQLException e) {

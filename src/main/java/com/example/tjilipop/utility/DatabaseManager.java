@@ -5,13 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
-public class Database {
+public class DatabaseManager {
     private static String url;
     private static String username;
     private static String password;
     private static Connection con;
 
-    private Database(){}
+    private DatabaseManager(){}
 
     public static Connection getConnection(){
         if(con != null){

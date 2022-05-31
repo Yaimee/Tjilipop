@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class LoginManager {
     public void updateLogin(Login login) {
         try {
-            Connection con = Database.getConnection();
+            Connection con = DatabaseManager.getConnection();
             PreparedStatement stmt = con.prepareStatement("UPDATE login SET username = '" + login.getUsername() + "', password = '" + login.getPassword() + "' WHERE username = '" + login.getUsername() + "'");
             stmt.executeUpdate();
         } catch(SQLException e) {
@@ -22,7 +22,7 @@ public class LoginManager {
         Login login = null;
 
         try {
-            Connection con = Database.getConnection();
+            Connection con = DatabaseManager.getConnection();
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM `tjili-pop`.login");
             ResultSet rs = stmt.executeQuery();
             rs.next();

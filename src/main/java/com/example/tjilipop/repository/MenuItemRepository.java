@@ -1,8 +1,6 @@
 package com.example.tjilipop.repository;
-
-import com.example.tjilipop.model.Event;
 import com.example.tjilipop.model.MenuItem;
-import com.example.tjilipop.utility.Database;
+import com.example.tjilipop.utility.DatabaseManager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MenuItemRepository implements CRUDInterface<MenuItem> {
-    private CRUDInterface<Event> eventsRepository = new EventsRepository();
+
     @Override
     public boolean insert(MenuItem menuItem) {
         try {
-            Connection con = Database.getConnection();
+            Connection con = DatabaseManager.getConnection();
             PreparedStatement stmt = con.prepareStatement("INSERT INTO beer VALUES ('" + menuItem.getName() + "'," + menuItem.getPrice() + "," + menuItem.getProcent() + ",'" + menuItem.getOrigin() + "','" + menuItem.getDescription() + "')");
             stmt.execute();
         } catch(SQLException e) {
@@ -31,7 +29,7 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
         MenuItem menuItem = null;
 
         try {
-            Connection con = Database.getConnection();
+            Connection con = DatabaseManager.getConnection();
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM beer WHERE id = "+ id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
@@ -49,7 +47,7 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
         List<MenuItem> menuList = new ArrayList<>();
 
         try {
-            Connection con = Database.getConnection();
+            Connection con = DatabaseManager.getConnection();
             String strQuery = "SELECT * FROM tableName";
             /*ved at bruge replace kan man erstatte noget i en string med noget andet*/
             String query = strQuery.replace("tableName",dbTable);
@@ -72,8 +70,8 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
 
         try {
             System.out.println(menuItem.toString());
-            Connection con = Database.getConnection();
-            String sql = "UPDATE `tjili-pop`.beer SET image_URL = '" + menuItem.getImageURL() + "', name = '" + menuItem.getName() + "', procent = '" + menuItem.getProcent() + "', origin = '" + menuItem.getOrigin() + "', description = '" + menuItem.getDescription() + "' WHERE id = " + menuItem.getId() + ";";
+            Connection con = DatabaseManager.getConnection();
+            String sql = "UPDATE beer SET image_URL = '" + menuItem.getImageURL() + "', name = '" + menuItem.getName() + "', procent = '" + menuItem.getProcent() + "', origin = '" + menuItem.getOrigin() + "', description = '" + menuItem.getDescription() + "' WHERE id = " + menuItem.getId() + ";";
             System.out.println(sql);
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.executeUpdate();
@@ -88,7 +86,7 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
     @Override
     public boolean delete(int id) {
         try {
-            Connection con = Database.getConnection();
+            Connection con = DatabaseManager.getConnection();
             PreparedStatement stmt = con.prepareStatement("DELETE FROM beer WHERE id = " + id);
             stmt.execute();
         } catch(SQLException e) {

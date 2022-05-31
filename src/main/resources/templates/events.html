@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="Stylesheet.css">
     <link type="text/css" rel="stylesheet" href="/staff-frontpage-stylesheet.css"/>
@@ -32,122 +32,16 @@
 
 <!--billeder med tekst-->
 <div class="center">
-    <div class="small-div">
+    <div class="small-div" th:each="event : ${events}">
         <div class="small-picture">
-            <img src="https://i.imgflip.com/39hlpw.jpg" height="90%" width="90%">
+            <img th:src="${event.getImageURL()}" height="90%" width="90%">
         </div>
 
         <div class="div1">
-            <h4>Overskrift</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vivamus non felis at nulla aliquet vehicula eget vel turpis.
-                Suspendisse velit mi, consequat non ligula et, finibus placerat tellus. </p>
-        </div>
-    </div>
-
-    <div class="small-div">
-        <div class="small-picture">
-            <img src="https://i.imgflip.com/39hlpw.jpg" height="90%" width="90%">
-        </div>
-
-        <div class="div1">
-            <h4>Overskrift</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vivamus non felis at nulla aliquet vehicula eget vel turpis.
-                Suspendisse velit mi, consequat non ligula et, finibus placerat tellus. </p>
-        </div>
-    </div>
-
-    <div class="small-div">
-        <div class="small-picture">
-            <img src="https://i.imgflip.com/39hlpw.jpg" height="90%" width="90%">
-        </div>
-
-        <div class="div1">
-            <h4>Overskrift</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vivamus non felis at nulla aliquet vehicula eget vel turpis.
-                Suspendisse velit mi, consequat non ligula et, finibus placerat tellus. </p>
-        </div>
-    </div>
-</div>
-<!--billeder med tekst-->
-<div class="center">
-    <div class="small-div">
-        <div class="small-picture">
-            <img src="https://i.imgflip.com/39hlpw.jpg" height="90%" width="90%">
-        </div>
-
-        <div class="div1">
-            <h4>Overskrift</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vivamus non felis at nulla aliquet vehicula eget vel turpis.
-                Suspendisse velit mi, consequat non ligula et, finibus placerat tellus. </p>
-        </div>
-    </div>
-
-    <div class="small-div">
-        <div class="small-picture">
-            <img src="https://i.imgflip.com/39hlpw.jpg" height="90%" width="90%">
-        </div>
-
-        <div class="div1">
-            <h4>Overskrift</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vivamus non felis at nulla aliquet vehicula eget vel turpis.
-                Suspendisse velit mi, consequat non ligula et, finibus placerat tellus. </p>
-        </div>
-    </div>
-
-    <div class="small-div">
-        <div class="small-picture">
-            <img src="https://i.imgflip.com/39hlpw.jpg" height="90%" width="90%">
-        </div>
-
-        <div class="div1">
-            <h4>Overskrift</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vivamus non felis at nulla aliquet vehicula eget vel turpis.
-                Suspendisse velit mi, consequat non ligula et, finibus placerat tellus. </p>
-        </div>
-    </div>
-</div>
-<!--billeder med tekst-->
-<div class="center">
-    <div class="small-div">
-        <div class="small-picture">
-            <img src="https://i.imgflip.com/39hlpw.jpg" height="90%" width="90%">
-        </div>
-
-        <div class="div1">
-            <h4>Overskrift</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vivamus non felis at nulla aliquet vehicula eget vel turpis.
-                Suspendisse velit mi, consequat non ligula et, finibus placerat tellus. </p>
-        </div>
-    </div>
-
-    <div class="small-div">
-        <div class="small-picture">
-            <img src="https://i.imgflip.com/39hlpw.jpg" height="90%" width="90%">
-        </div>
-
-        <div class="div1">
-            <h4>Overskrift</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vivamus non felis at nulla aliquet vehicula eget vel turpis.
-                Suspendisse velit mi, consequat non ligula et, finibus placerat tellus. </p>
-        </div>
-    </div>
-
-    <div class="small-div">
-        <div class="small-picture">
-            <img src="https://i.imgflip.com/39hlpw.jpg" height="90%" width="90%">
-        </div>
-
-        <div class="div1">
-            <h4>Overskrift</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <h4 th:text="${event.getName()}">Overskrift</h4>
+            <p th:text="${event.getDate()}">this is a date</p>
+            <p th:text="${event.getTime()}"></p>
+            <p th:text="${event.getInfo()}">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Vivamus non felis at nulla aliquet vehicula eget vel turpis.
                 Suspendisse velit mi, consequat non ligula et, finibus placerat tellus. </p>
         </div>

@@ -88,3 +88,5 @@ INSERT INTO `tjili-pop`.`events` (`id`,`name`,`date`,`time`,`info`,`image_URL`) 
 INSERT INTO `tjili-pop`.`events` (`id`,`name`,`date`,`time`,`info`,`image_URL`) VALUES (3,'Led Zeppelin','2022-05-12','12:30','De er bare så gode','https://i.imgur.com/Azts2Ro.jpg');
 INSERT INTO `tjili-pop`.`events` (`id`,`name`,`date`,`time`,`info`,`image_URL`) VALUES (4,'The Wailers','2022-07-12','15:40','Hold da op vi glæder os','https://i.imgur.com/KQSRFWA.jpg');
 INSERT INTO `tjili-pop`.`events` (`id`,`name`,`date`,`time`,`info`,`image_URL`) VALUES (5,'Die Antwort','2022-05-12','14:30','Det bliver fjong','https://i.imgur.com/fBzfEkA.jpg');
+
+INSERT INTO `tjili-pop`.`login` (`username`,`password`) VALUES ('admin','123');

@@ -23,7 +23,7 @@ public class StaffController {
     private CRUDInterface<Event> eventsRepository = new EventsRepository();
     private CRUDInterface<MenuItem> menuItemRespository = new MenuItemRepository();
     private LoginService loginService = new LoginService();
-
+    //Session er implementeret for at teste om der er logget ind, før man kan bruge staffsektionen
     @GetMapping()
     public String loginPage(HttpSession session) {
         if(session.getAttribute("login") != null) {
@@ -32,7 +32,7 @@ public class StaffController {
             return "staff-login";
         }
     }
-    //Session er implementeret for at teste om der er logget ind, før man kan bruge staff
+
     @PostMapping()
     public String login(@ModelAttribute Login loginData, HttpSession session, Model model) {
         if(loginService.doPasswordAndUsernameMatch(loginData.getUsername(),loginData.getPassword())) {
@@ -53,7 +53,7 @@ public class StaffController {
             return "staff-login";
         }
     }
-
+    //Her hentes en liste fra database og sendes til view
     @GetMapping("/reservation-requests")
     public String reservationRequests(HttpSession session, Model model) {
         List<Reservation> reservationList = reservationsRepository.getList("reservation");

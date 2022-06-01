@@ -15,7 +15,7 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
     public boolean insert(MenuItem menuItem) {
         try {
             Connection con = DatabaseManager.getConnection();
-            PreparedStatement stmt = con.prepareStatement("INSERT INTO beer VALUES ('" + menuItem.getName() + "'," + menuItem.getPrice() + "," + menuItem.getProcent() + ",'" + menuItem.getOrigin() + "','" + menuItem.getDescription() + "')");
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO beer VALUES ('" + menuItem.getName() + "'," + menuItem.getPrice() + "," + menuItem.getProcent() + ",'" + menuItem.getOrigin() + "','" + menuItem.getDescription() + "','" + menuItem.getImageURL() + "')");
             stmt.execute();
         } catch(SQLException e) {
             e.printStackTrace();

@@ -68,7 +68,7 @@ public class StaffController {
     //Events
     @GetMapping("/edit-events")
     public String editEvents(HttpSession session, Model model) {
-        List<Event> events = eventsRepository.getList("event");
+        List<Event> events = eventsRepository.getList("events");
         if(session.getAttribute("login") != null) {
             model.addAttribute("events", events);
             return "staff-edit-events";

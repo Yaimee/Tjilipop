@@ -13,6 +13,7 @@ public class Event {
     private String info;
     private String imageURL;
 
+    //Det er vigtigt at have en tom contructor, når der skal kreeres et objekt med @modelattribute.
     public Event() {
 
     }

@@ -32,7 +32,7 @@ public class StaffController {
             return "staff-login";
         }
     }
-
+    //ved login testes om username og password matcher det i databasen
     @PostMapping()
     public String login(@ModelAttribute Login loginData, HttpSession session, Model model) {
         if(loginService.doPasswordAndUsernameMatch(loginData.getUsername(),loginData.getPassword())) {
@@ -77,7 +77,7 @@ public class StaffController {
             return "staff-login";
         }
     }
-
+    //pathvariable bruges til at hente id ned fra URL'en
     @GetMapping("/edit-events/event-settings/{id}")
     public String eventSettings(@PathVariable int id, HttpSession session, Model model) {
         if(session.getAttribute("login") != null) {
@@ -88,7 +88,7 @@ public class StaffController {
             return "staff-login";
         }
     }
-
+    //her indsætter data om events i databasen
     @PostMapping("/edit-events/event-settings/")
     public String eventSettingsData(@ModelAttribute Event eventData) {
         eventsRepository.insert(eventData);
@@ -171,7 +171,7 @@ public class StaffController {
             return "staff-login";
         }
     }
-
+    //her bruges loginservice til at validere username og password.
     @PostMapping("/profile-settings")
     public String updateProfile(@ModelAttribute ProfileSetting profileSetting, Model model) {
         String username = profileSetting.getUsername();

@@ -47,11 +47,13 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
         List<MenuItem> menuList = new ArrayList<>();
 
         try {
+            /* Tobias kode */
             Connection con = DatabaseManager.getConnection();
             String strQuery = "SELECT * FROM tableName";
             /*ved at bruge replace kan man erstatte noget i en string med noget andet*/
             String query = strQuery.replace("tableName",dbTable);
             PreparedStatement stmt = con.prepareStatement(query);
+            /* Tobias kode */
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
                 MenuItem menuItem = new MenuItem(rs);

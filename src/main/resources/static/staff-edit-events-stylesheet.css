@@ -1,11 +1,7 @@
-
+/*Rasmus kode*/
 * {
     box-sizing: border-box;
 }
-
-/*html, body, main {
-    height: 100%;
-}*/
 
 body {
     background-color: hsl(70,60%,60%);
@@ -56,13 +52,13 @@ ul li {
     right: 50px;
     float: right;
 }
-/*
+
 .container {
     display: flex;
     flex-direction: row;
     height: 100%;
 }
-*/
+
 table, tr, td, th {
     border: 1px solid black;
 }
@@ -113,4 +109,4 @@ button {
     height: 120px;
     width: 120px;
 }
-
+/*Rasmus kode*/

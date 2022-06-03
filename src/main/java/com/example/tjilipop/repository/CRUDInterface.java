@@ -3,7 +3,7 @@ package com.example.tjilipop.repository;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-
+//Rasmus kode
 public interface CRUDInterface<T> {
     //Create in database
     public boolean insert(T entity);
@@ -18,3 +18,5 @@ public interface CRUDInterface<T> {
     //Delete in database
     public boolean delete(int id);
 }
+//Rasmus kode
+

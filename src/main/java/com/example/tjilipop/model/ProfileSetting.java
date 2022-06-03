@@ -1,5 +1,5 @@
 package com.example.tjilipop.model;
-
+//Rasmus kode
 public class ProfileSetting {
     String username;
     String password;
@@ -42,3 +42,4 @@ public class ProfileSetting {
         this.newPassword2 = newPassword2;
     }
 }
+//Rasmus kode

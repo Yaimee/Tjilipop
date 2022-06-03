@@ -1,7 +1,7 @@
 package com.example.tjilipop.model;
 
 import java.sql.ResultSet;
-
+//Rasmus kode
 public class Login {
     private String username;
     private String password;
@@ -39,3 +39,4 @@ public class Login {
         this.password = password;
     }
 }
+//Rasmus kode

@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+//Rasmus kode
 public class MenuItemRepository implements CRUDInterface<MenuItem> {
 
     @Override
@@ -99,3 +99,4 @@ public class MenuItemRepository implements CRUDInterface<MenuItem> {
         return true;
     }
 }
+//Rasmus kode

@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+//Rasmus kode
 public class LoginManager {
+    //opdaterer login i database
     public void updateLogin(Login login) {
         try {
             Connection con = DatabaseManager.getConnection();
@@ -17,7 +19,7 @@ public class LoginManager {
             System.out.println("Something went wrong, updating password in database");
         }
     }
-
+    //henter login fra database
     public Login getLogin() {
         Login login = null;
 
@@ -35,3 +37,4 @@ public class LoginManager {
         return login;
     }
 }
+//Rasmus kode

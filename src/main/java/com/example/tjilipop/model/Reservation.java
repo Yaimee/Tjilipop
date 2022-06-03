@@ -3,7 +3,6 @@ package com.example.tjilipop.model;
 import java.sql.ResultSet;
 import java.sql.Time;
 import java.util.Date;
-
 public class Reservation {
     /* Her skal alle navnene på String variablerne være
     PRÆCIS det samme som "name" attribut fra vores HTML dokument (reservation)

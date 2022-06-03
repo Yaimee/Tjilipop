@@ -2,7 +2,7 @@ package com.example.tjilipop.model;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Time;
-
+//Rasmus kode
 public class MenuItem {
     private int id;
     private String name;
@@ -101,3 +101,4 @@ public class MenuItem {
                 '}';
     }
 }
+//Rasmus kode

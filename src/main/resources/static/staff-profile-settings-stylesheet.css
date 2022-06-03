@@ -1,11 +1,7 @@
-
+/*Rasmus kode*/
 * {
     box-sizing: border-box;
 }
-
-/*html, body, main {
-    height: 100%;
-}*/
 
 body {
     background-color: hsl(70,60%,60%);
@@ -78,7 +74,7 @@ div.right {
 .form-container {
     border: 3px solid black;
     border-radius: 10px;
-    /*width: 40%;*/
+
 }
 
 .settings {

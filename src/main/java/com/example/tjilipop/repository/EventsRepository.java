@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+//Rasmus kode
 public class EventsRepository implements CRUDInterface<Event> {
 
     @Override
@@ -97,3 +97,4 @@ public class EventsRepository implements CRUDInterface<Event> {
         return true;
     }
 }
+//Rasmus kode

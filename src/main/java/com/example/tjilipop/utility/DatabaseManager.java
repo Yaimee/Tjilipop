@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
+//Rasmus kode
 public class DatabaseManager {
     private static String url;
     private static String username;
@@ -30,3 +30,4 @@ public class DatabaseManager {
         return con;
     }
 }
+//Rasmus kode

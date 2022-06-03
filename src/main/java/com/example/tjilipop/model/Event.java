@@ -4,7 +4,7 @@ package com.example.tjilipop.model;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Time;
-
+//Rasmus kode
 public class Event {
     private int id;
     private String name;
@@ -91,3 +91,4 @@ public class Event {
                 '}';
     }
 }
+//Rasmus kode

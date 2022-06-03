@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+//Rasmus kode
 public class ReservationsRepository implements CRUDInterface<Reservation> {
 
     @Override
@@ -90,3 +90,4 @@ public class ReservationsRepository implements CRUDInterface<Reservation> {
         return true;
     }
 }
+//Rasmus kode
